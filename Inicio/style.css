@@ -2,7 +2,7 @@
 body {
   width: 100%;
   background-color: #fffbf5;
-  height: auto;
+  height: 100%;
 }
 
 .inicio {
@@ -14,7 +14,10 @@ body {
 }
 
 .inicio .virtual-assistant {
-  width: 100%;
+  align-self: flex-end;
+  background-color: transparent;
+  border: none;
+  width: min-content;
   padding-top: 50px;
   padding-right: 50px;
   text-align: end;
@@ -112,4 +115,74 @@ body {
     }
   }
 
+}
+
+.end-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-evenly;
+}
+
+/*  POP UP INSERT ID*/
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  /* negro 60% opaco */
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.popup {
+  background: #F0EBE0;
+  padding: 30px;
+  width: 500px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-family: 'Afacad';
+
+  .btn-close {
+    align-self: flex-end;
+
+    button {
+      color: #214EA0;
+      font-weight: 600;
+      background-color: transparent;
+      border: 2px solid #214EA0;
+      border-radius: 3px;
+    }
+
+  }
+
+  label {
+    font-size: 45px;
+    font-weight: 500;
+    color: #214EA0;
+  }
+
+  input {
+    border: none;
+    font-size: 30px;
+    padding: 5px 12px;
+  }
+
+  .qr-code {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    font-size: 24px;
+  }
+
+  img {
+    background-color: white;
+  }
 }

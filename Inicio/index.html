@@ -11,7 +11,7 @@
 <body>
   <!-- Inicio -->
   <div class="inicio">
-    <div class="virtual-assistant"><img src="../img/asistente virtual.png" alt=""></div>
+    <button class="virtual-assistant"><img src="../img/asistente virtual.png" alt=""></button>
     <p class="DRIVE-THRU">
       <img src="../img/brewnbagel.png" alt="">
       <span class="title">
@@ -19,17 +19,34 @@
       </span>
     </p>
     <div class="img-bagels"></div>
-    <div class="slogan">My mornings always happily start with hot bagels...</div>
-    <div class="buttons">
-      <button class="btn-member">
-        <span style="background-color: transparent;">I'M A MEMBER</span>
-        <span class="spn-2" style="background-color: transparent;">(Or join the club)</span>
-      </button>
-      <button>
-        ORDER NOW
-      </button>
+
+    <div class="end-content">
+      <div class="slogan">My mornings always happily start with hot bagels...</div>
+      <div class="buttons">
+        <button class="btn-member" id="btn-member" onclick="AbrirPopup()">
+          <span style="background-color: transparent;">I'M A MEMBER</span>
+          <span class="spn-2" style="background-color: transparent;" onclick="OrderWindow()">(Or join the club)</span>
+        </button>
+        <button id="order">
+          ORDER NOW
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <div id="login-member" class="overlay">
+    <div class="popup">
+      <div class="btn-close" id="btn-close" onclick="ClosePopup()"><button>x</button></div>
+      <label for="id-member">INSERT YOUR ID</label>
+      <input type="text" name="id-member" id="id-member">
+      <span class="qr-code">
+        <p>If you don't have one, scan the QR code</p>
+        <img src="" alt="QR CODE">
+      </span>
     </div>
   </div>
 </body>
+<script src="script.js"></script>
 
 </html>
