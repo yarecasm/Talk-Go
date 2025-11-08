@@ -1,145 +1,115 @@
 /* Inicio */
-.inicio {
-  overflow: hidden;
+body {
   width: 100%;
-  min-width: 800px;
-  min-height: 1280px;
-  position: relative;
+  background-color: #fffbf5;
+  height: auto;
+}
+
+.inicio {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50px;
+}
+
+.inicio .virtual-assistant {
+  width: 100%;
+  padding-top: 50px;
+  padding-right: 50px;
+  text-align: end;
 }
 
 .inicio .DRIVE-THRU {
-  position: absolute;
-  top: 185px;
-  left: 70px;
-  transform: rotate(-90deg);
-  font-family: "Afacad-Regular", Helvetica;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-family: "Afacad", Helvetica;
   font-weight: 400;
+  font-size: 115px;
   color: #f1c1c4;
-  font-size: 128px;
+  padding-right: 20%;
+  padding-left: 20%;
   text-align: right;
-  letter-spacing: -7.68px;
-  line-height: 89.6px;
-}
 
-.inicio .text-wrapper {
-  letter-spacing: -9.83px;
+  img {
+    width: max-content;
+    height: 280px;
+    z-index: 1;
+    background-color: transparent;
+  }
+
+  .title {
+    display: flex;
+    flex-direction: column;
+    letter-spacing: -4px;
+    line-height: 75px;
+    position: relative;
+    left: -45px;
+  }
 }
 
 .inicio .span {
-  font-family: "Afacad-SemiBold", Helvetica;
+  font-family: "Afacad", Helvetica;
   font-weight: 600;
-  font-size: 135px;
+  font-size: 130px;
   letter-spacing: -10.94px;
   line-height: 94.5px;
 }
 
-.inicio .div {
-  position: absolute;
-  top: 384px;
-  left: 491px;
-  transform: rotate(-90deg);
-  font-family: "Kapakana-Regular", Helvetica;
-  font-weight: 400;
-  color: #214ea0;
-  font-size: 45px;
-  text-align: right;
-  letter-spacing: 0;
-  line-height: 31.5px;
-  white-space: nowrap;
-}
-
-.inicio .rectangle {
-  top: 486px;
-  position: absolute;
-  left: 936px;
-  width: 259px;
-  height: 132px;
-  transform: rotate(-90deg);
-}
-
-.inicio .IM-a-MEMBER {
-  position: absolute;
-  top: 521px;
-  left: 982px;
-  width: 150px;
-  height: 60px;
-  transform: rotate(-90deg);
-}
-
-.inicio .or-join-the-club {
-  position: absolute;
-  top: 544px;
-  left: 1041px;
-  width: 132px;
-  height: 18px;
-  transform: rotate(-90deg);
-}
-
-.inicio .img {
-  top: 181px;
-  position: absolute;
-  left: 936px;
-  width: 259px;
-  height: 132px;
-  transform: rotate(-90deg);
-}
-
-.inicio .ORDER-NOW {
-  position: absolute;
-  top: 215px;
-  left: 1002px;
-  width: 130px;
-  height: 61px;
-  transform: rotate(-90deg);
-}
-
-.inicio .sin-ttulo {
-  position: absolute;
-  top: 287px;
-  left: 186px;
-  width: 42px;
-  height: 220px;
-  transform: rotate(-90deg);
-  aspect-ratio: 0.19;
-}
-
-.inicio .asistente-virtual {
-  position: absolute;
-  top: 62px;
-  left: 39px;
-  width: 39px;
-  height: 39px;
-}
-
-.inicio .vector {
-  height: 83.33%;
-  top: 0;
-  left: -14.74%;
-  position: absolute;
-  width: 100.00%;
-  transform: rotate(-90deg);
-}
-
-.inicio .vector-2 {
-  height: 38.89%;
-  top: 24.15%;
-  left: 24.15%;
-  position: absolute;
-  width: 100.00%;
-  transform: rotate(-90deg);
-}
-
-.inicio .virtual-assistant {
-  position: absolute;
-  top: 10px;
-  left: 31px;
-  width: 54px;
-  transform: rotate(-90deg);
-  font-family: "Afacad-Regular", Helvetica;
-  font-weight: 400;
-  color: #214ea0;
-  font-size: 15px;
+.inicio .slogan {
+  width: 100%;
+  padding: 50px;
+  display: flex;
+  justify-content: center;
   text-align: center;
-  letter-spacing: 0;
-  line-height: 10.5px;
+  font-family: "Kapakana", Helvetica;
+  font-weight: 400;
+  color: #214ea0;
+  font-size: 50px;
+}
+
+.inicio .img-bagels {
+  background-image: url("../img/bagels1.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat-x;
+  width: 100%;
+  min-height: 300px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.buttons {
+  width: 100%;
+  justify-content: space-evenly;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  padding-bottom: 50px;
+
+  button {
+    background-color: #f1c1c4;
+    border-radius: 15px;
+    padding: 35px;
+    border: none;
+    color: white;
+    font-family: "Afacad", Helvetica;
+    font-weight: 600;
+    font-size: 35px;
+    box-sizing: border-box;
+  }
+
+  .btn-member {
+    display: flex;
+    flex-direction: column;
+
+    .spn-2 {
+      font-weight: 300;
+      font-size: 20px;
+    }
+  }
+
 }
