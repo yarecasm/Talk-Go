@@ -1,0 +1,240 @@
+/* Categories*/
+.categories {
+  background-color: #f6f3ed;
+  overflow: hidden;
+  width: 100%;
+  min-width: 800px;
+  min-height: 1280px;
+  position: relative;
+}
+
+.categories .hey-what-s-up {
+  position: absolute;
+  top: 515px;
+  left: 149px;
+  transform: rotate(-90deg);
+  font-family: "Afacad-Bold", Helvetica;
+  font-weight: 400;
+  color: #214ea0;
+  font-size: 75px;
+  letter-spacing: 0;
+  line-height: 58.5px;
+}
+
+.categories .text-wrapper {
+  font-weight: 700;
+}
+
+.categories .span {
+  font-family: "Afacad-Regular", Helvetica;
+}
+
+.categories .rectangle {
+  top: 432px;
+  left: 472px;
+  background-color: #ffffff;
+  border-radius: 35px;
+  position: absolute;
+  width: 299px;
+  height: 291px;
+  transform: rotate(-90deg);
+}
+
+.categories .img {
+  top: 432px;
+  left: 811px;
+  position: absolute;
+  width: 299px;
+  height: 291px;
+  transform: rotate(-90deg);
+}
+
+.categories .rectangle-2 {
+  top: 105px;
+  left: 819px;
+  position: absolute;
+  width: 299px;
+  height: 291px;
+  transform: rotate(-90deg);
+}
+
+.categories .div {
+  top: 105px;
+  left: 474px;
+  background-color: #ffffff;
+  border-radius: 35px;
+  position: absolute;
+  width: 299px;
+  height: 291px;
+  transform: rotate(-90deg);
+}
+
+.categories .image {
+  top: 455px;
+  width: 244px;
+  height: 244px;
+  position: absolute;
+  left: 478px;
+  transform: rotate(-90deg);
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.categories .text-wrapper-2 {
+  position: absolute;
+  top: 558px;
+  left: 676px;
+  width: 100px;
+  transform: rotate(-90deg);
+  font-family: "Afacad-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 32px;
+  letter-spacing: 0;
+  line-height: 25.0px;
+  white-space: nowrap;
+}
+
+.categories .image-2 {
+  top: 139px;
+  width: 222px;
+  height: 222px;
+  position: absolute;
+  left: 478px;
+  transform: rotate(-90deg);
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.categories .snacks {
+  position: absolute;
+  top: 566px;
+  left: 1022px;
+  width: 84px;
+  height: 22px;
+  transform: rotate(-90deg);
+}
+
+.categories .combos {
+  position: absolute;
+  top: 232px;
+  left: 1016px;
+  width: 103px;
+  height: 22px;
+  transform: rotate(-90deg);
+}
+
+.categories .sin-ttulo {
+  position: absolute;
+  top: 460px;
+  left: 823px;
+  width: 234px;
+  height: 234px;
+  transform: rotate(-90deg);
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.categories .text-wrapper-3 {
+  position: absolute;
+  top: 236px;
+  left: 666px;
+  width: 120px;
+  transform: rotate(-90deg);
+  font-family: "Afacad-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 32px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 25.0px;
+  white-space: nowrap;
+}
+
+.categories .sin-ttulo-2 {
+  top: 152px;
+  left: 848px;
+  width: 196px;
+  height: 196px;
+  aspect-ratio: 1;
+  object-fit: cover;
+  position: absolute;
+  transform: rotate(-90deg);
+}
+
+.categories .asistente-virtual {
+  position: absolute;
+  top: 62px;
+  left: 39px;
+  width: 39px;
+  height: 39px;
+}
+
+.categories .vector {
+  position: absolute;
+  width: 100.00%;
+  height: 83.33%;
+  top: 0;
+  left: -14.74%;
+  transform: rotate(-90deg);
+}
+
+.categories .vector-2 {
+  position: absolute;
+  width: 100.00%;
+  height: 38.89%;
+  top: 24.15%;
+  left: 24.15%;
+  transform: rotate(-90deg);
+}
+
+.categories .virtual-assistant {
+  position: absolute;
+  top: 10px;
+  left: 31px;
+  width: 54px;
+  transform: rotate(-90deg);
+  font-family: "Afacad-Regular", Helvetica;
+  font-weight: 400;
+  color: #214ea0;
+  font-size: 15px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 10.5px;
+}
+
+.categories .sin-ttulo-3 {
+  top: 616px;
+  left: 70px;
+  width: 117px;
+  height: 131px;
+  aspect-ratio: 0.89;
+  position: absolute;
+  transform: rotate(-90deg);
+}
+
+.categories .corner-down-left {
+  position: absolute;
+  top: 740px;
+  left: 21px;
+  width: 42px;
+  height: 42px;
+  transform: rotate(-90deg);
+  aspect-ratio: 1;
+}
+
+.categories .vector-3 {
+  position: absolute;
+  width: 20.83%;
+  height: 41.67%;
+  top: 36.90%;
+  left: 11.90%;
+}
+
+.categories .vector-4 {
+  position: absolute;
+  width: 66.67%;
+  height: 45.83%;
+  top: 11.90%;
+  left: 11.90%;
+}
