@@ -86,9 +86,7 @@ Obtiene todos los usuarios de cualquier tipo (cliente, cocina o admin).
         "ID_USUARIO": 1,
         "NOMBRE": "Vanessa Aguayo",
         "CORREO": "vanessa@correo.com",
-        "PASSWORD": "12345",
-        "TIPO_USUARIO": "cliente",
-        "PUNTOS_ACUMULADOS": 0
+        "TIPO_USUARIO": "cliente"
     }
 ]
 ```

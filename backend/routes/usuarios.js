@@ -38,7 +38,7 @@ router.post("/", (req, res) => {
 
 // --- GET todos los usuarios
 router.get("/", (req, res) => {
-    const sql = "SELECT * FROM usuarios";
+    const sql = "SELECT ID_USUARIO, NOMBRE, CORREO, TIPO_USUARIO FROM usuarios";
 
     db.query(sql, (err, results) => {
         if (err) return res.status(500).json({ error: err });
