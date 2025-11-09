@@ -36,4 +36,24 @@ router.post("/", (req, res) => {
     });
 });
 
+// --- GET todos los usuarios
+router.get("/", (req, res) => {
+    const sql = "SELECT * FROM usuarios";
+
+    db.query(sql, (err, results) => {
+        if (err) return res.status(500).json({ error: err });
+        res.json(results);
+    });
+});
+
+// --- GET solo clientes
+router.get("/clientes", (req, res) => {
+    const sql = "SELECT ID_USUARIO, NOMBRE, CORREO, PUNTOS_ACUMULADOS FROM usuarios WHERE TIPO_USUARIO = 'cliente'";
+
+    db.query(sql, (err, results) => {
+        if (err) return res.status(500).json({ error: err });
+        res.json(results);
+    });
+});
+
 export default router;

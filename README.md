@@ -11,9 +11,6 @@
 
 1. [Autenticación y Roles](#autenticación-y-roles)  
 2. [Endpoints de Usuarios](#endpoints-de-usuarios)  
-3. [Validaciones y Seguridad](#validaciones-y-seguridad)  
-4. [Glosario](#glosario)  
-
 ---
 
 ## Autenticación y Roles
@@ -70,5 +67,50 @@ Registra un nuevo usuario de cualquier tipo (cliente, cocina o admin).
   "TIPO_USUARIO": "cliente",
   "PUNTOS_ACUMULADOS": 0
 }
+```
+</details>
+
+
+### 2. Obtener todos los usuarios (cliente, cocina, admin)
+
+`GET /api/usuarios`
+
+Obtiene todos los usuarios de cualquier tipo (cliente, cocina o admin).
+
+<details> 
+<summary>Respuesta 200</summary>
+
+```json
+[
+    {
+        "ID_USUARIO": 1,
+        "NOMBRE": "Vanessa Aguayo",
+        "CORREO": "vanessa@correo.com",
+        "PASSWORD": "12345",
+        "TIPO_USUARIO": "cliente",
+        "PUNTOS_ACUMULADOS": 0
+    }
+]
+```
+</details>
+
+### 3. Obtener todos los usuarios tipo cliente
+
+`GET /api/usuarios/clientes`
+
+Obtiene todos los usuarios clientes.
+
+<details> 
+<summary>Respuesta 200</summary>
+
+```json
+[
+    {
+        "ID_USUARIO": 1,
+        "NOMBRE": "Vanessa Aguayo",
+        "CORREO": "vanessa@correo.com",
+        "PUNTOS_ACUMULADOS": 0
+    }
+]
 ```
 </details>
