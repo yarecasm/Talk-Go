@@ -1,97 +1,80 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="globals.css" />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <!-- Bagels --> 
-    <div class="bagels">
-      <img class="rectangle" src="img/rectangle-1.png" />
-      <img class="element" src="img/22-00.png" />
-      <img class="img" src="img/rectangle-24.png" />
-      <img class="ORDER" src="img/ORDER.png" />
-      <div class="div"></div>
-      <div class="rectangle-2"></div>
-      <div class="rectangle-3"></div>
-      <div class="text-wrapper">Bagels</div>
-      <div class="rectangle-4"></div>
-      <div class="text-wrapper-2">Drinks</div>
-      <div class="rectangle-5"></div>
-      <div class="text-wrapper-3">Snacks</div>
-      <img class="bacon-bagel" src="img/bacon-bagel-1.png" />
-      <div class="my-order">My<br />Order</div>
-      <img class="line" src="img/line-1.svg" />
-      <img class="line-2" src="img/line-2.svg" />
-      <img class="line-3" src="img/line-3.svg" />
-      <div class="text-wrapper-4">Bacon Bagel</div>
-      <div class="text-wrapper-5">$7.00</div>
-      <div class="rectangle-6"></div>
-      <div class="rectangle-7"></div>
-      <div class="text-wrapper-6">Salmon Bagel</div>
-      <div class="text-wrapper-7">$10.00</div>
-      <img class="rectangle-8" src="img/rectangle-16.png" />
-      <img class="rectangle-9" src="img/rectangle-17.png" />
-      <img class="morning-bagel" src="img/morning-bagel-1.png" />
-      <div class="text-wrapper-8">Morning Bagel</div>
-      <img class="element-2" src="img/8-00.png" />
-      <img class="rectangle-10" src="img/rectangle-18.png" />
-      <img class="rectangle-11" src="img/rectangle-19.png" />
-      <img class="bacon-bagel-2" src="img/bacon-bagel-4.png" />
-      <div class="text-wrapper-9">Bigol Bagel</div>
-      <img class="element-3" src="img/6-00.png" />
-      <img class="rectangle-12" src="img/rectangle-20.png" />
-      <img class="rectangle-13" src="img/rectangle-21.png" />
-      <img class="bacon-bagel-3" src="img/bacon-bagel-5.png" />
-      <img class="laika-bagel" src="img/laika-bagel-1.png" />
-      <img class="odi-bagel" src="img/odi-bagel.png" />
-      <img class="element-4" src="img/7-00.png" />
-      <img class="rectangle-14" src="img/rectangle-22.png" />
-      <img class="rectangle-15" src="img/rectangle-23.png" />
-      <img class="bacon-bagel-4" src="img/bacon-bagel-6.png" />
-      <img class="xolo-bagel" src="img/xolo-bagel.png" />
-      <img class="element-5" src="img/10-00.png" />
-      <div class="order">
-        <div class="text-wrapper-10">$12.00</div>
-        <img class="bacon-bagel-5" src="img/bacon-bagel-7.png" />
-        <div class="text-wrapper-11">Bigol Bagel</div>
-        <div class="text-wrapper-12">2</div>
-        <div class="minus-circle">
-          <img class="vector" src="img/vector-11.svg" /> <img class="vector-2" src="img/vector.svg" />
-        </div>
-        <div class="plus-circle">
-          <img class="vector" src="img/vector-9.svg" />
-          <img class="vector-3" src="img/vector-12.svg" />
-          <img class="vector-2" src="img/vector-4.svg" />
-        </div>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="global.css" />
+  <title>Bagel Ordering</title>
+</head>
+<body>
+  <div class="main-container">
+
+    <!-- Columna 1: Menú y navegación -->
+    <div class="menu-column">
+
+      <!-- Botón de regresar como imagen -->
+      <img src="img/back-icon.svg" alt="Back" class="backButton" />
+
+      <!-- Botón de asistente virtual -->
+      <div class="virtual-assistant">
+        <img src="img/assistant-icon.svg" alt="Assistant" />
+        <span>Virtual Assistant</span>
       </div>
-      <img class="laika-bagel-2" src="img/image.png" />
-      <div class="order-2">
-        <div class="text-wrapper-10">$10.00</div>
-        <div class="text-wrapper-13">Laika Bagel</div>
-        <div class="text-wrapper-12">1</div>
-        <div class="minus-circle">
-          <img class="vector" src="img/vector-6.svg" /> <img class="vector-2" src="img/image.svg" />
-        </div>
-        <div class="plus-circle">
-          <img class="vector" src="img/vector-2.svg" />
-          <img class="vector-3" src="img/vector-7.svg" />
-          <img class="vector-2" src="img/vector-13.svg" />
-        </div>
-      </div>
-      <img class="total" src="img/total.png" />
-      <div class="asistente-virtual">
-        <img class="vector-4" src="img/vector-5.svg" />
-        <img class="vector-5" src="img/vector-8.svg" />
-        <div class="virtual-assistant">Virtual<br />Assistant</div>
-      </div>
-      <img class="sin-ttulo" src="img/sin-t-tulo-2-3.png" />
-      <div class="corner-down-left">
-        <img class="vector-6" src="img/vector-10.svg" /> <img class="vector-7" src="img/vector-3.svg" />
+
+      <!-- Navegación de categorías -->
+      <nav class="category-nav">
+        <button class="category-button active">Bagels</button>
+        <button class="category-button">Drinks</button>
+        <button class="category-button">Snacks</button>
+      </nav>
+
+      <!-- Galería de productos -->
+      <div class="product-gallery">
+        <button class="product-card" data-name="Bacon Bagel" data-price="7" data-img="img/bacon-bagel-1.png">
+          <img src="img/bacon-bagel-1.png" alt="Bacon Bagel" />
+          <div class="product-name">Bacon Bagel</div>
+          <div class="product-price">$7.00</div>
+        </button>
+        <button class="product-card" data-name="Salmon Bagel" data-price="10" data-img="img/salmon-bagel.png">
+          <img src="img/salmon-bagel.png" alt="Salmon Bagel" />
+          <div class="product-name">Salmon Bagel</div>
+          <div class="product-price">$10.00</div>
+        </button>
+        <button class="product-card" data-name="Morning Bagel" data-price="6" data-img="img/morning-bagel.png">
+          <img src="img/morning-bagel.png" alt="Morning Bagel" />
+          <div class="product-name">Morning Bagel</div>
+          <div class="product-price">$6.00</div>
+        </button>
+        <button class="product-card" data-name="Bigol Bagel" data-price="10" data-img="img/bigol-bagel.png">
+          <img src="img/bigol-bagel.png" alt="Bigol Bagel" />
+          <div class="product-name">Bigol Bagel</div>
+          <div class="product-price">$10.00</div>
+        </button>
+        <button class="product-card" data-name="Odi Bagel" data-price="7" data-img="img/odi-bagel.png">
+          <img src="img/odi-bagel.png" alt="Odi Bagel" />
+          <div class="product-name">Odi Bagel</div>
+          <div class="product-price">$7.00</div>
+        </button>
+        <button class="product-card" data-name="Xolo Bagel" data-price="10" data-img="img/xolo-bagel.png">
+          <img src="img/xolo-bagel.png" alt="Xolo Bagel" />
+          <div class="product-name">Xolo Bagel</div>
+          <div class="product-price">$10.00</div>
+        </button>
       </div>
     </div>
-  </body>
-</html>
 
+    <!-- Columna 2: Resumen de orden -->
+    <div class="order-column">
+      <h2>My Order</h2>
+      <div id="order-items"></div>
+      <div class="order-total">
+        <strong>Total:</strong> $<span id="order-total">0.00</span>
+      </div>
+      <button class="order-button">ORDER</button>
+    </div>
+
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
