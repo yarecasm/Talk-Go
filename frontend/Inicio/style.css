@@ -1,0 +1,188 @@
+/* Inicio */
+body {
+  width: 100%;
+  background-color: #fffbf5;
+  height: 100%;
+}
+
+.inicio {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50px;
+}
+
+.inicio .virtual-assistant {
+  align-self: flex-end;
+  background-color: transparent;
+  border: none;
+  width: min-content;
+  padding-top: 50px;
+  padding-right: 50px;
+  text-align: end;
+}
+
+.inicio .DRIVE-THRU {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-family: "Afacad", Helvetica;
+  font-weight: 400;
+  font-size: 115px;
+  color: #f1c1c4;
+  padding-right: 20%;
+  padding-left: 20%;
+  text-align: right;
+
+  img {
+    width: max-content;
+    height: 280px;
+    z-index: 1;
+    background-color: transparent;
+  }
+
+  .title {
+    display: flex;
+    flex-direction: column;
+    letter-spacing: -4px;
+    line-height: 75px;
+    position: relative;
+    left: -45px;
+  }
+}
+
+.inicio .span {
+  font-family: "Afacad", Helvetica;
+  font-weight: 600;
+  font-size: 130px;
+  letter-spacing: -10.94px;
+  line-height: 94.5px;
+}
+
+.inicio .slogan {
+  width: 100%;
+  padding: 50px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-family: "Kapakana", Helvetica;
+  font-weight: 400;
+  color: #214ea0;
+  font-size: 50px;
+}
+
+.img-bagels img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain; /* Mantiene la imagen completa y bien proporcionada */
+}
+
+.img-bagels {
+  width: 100%;
+  background: none;  /* Sin background-image */
+}
+
+.buttons {
+  width: 100%;
+  justify-content: space-evenly;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  padding-bottom: 50px;
+
+  button {
+    background-color: #f1c1c4;
+    border-radius: 15px;
+    padding: 35px;
+    border: none;
+    color: white;
+    font-family: "Afacad", Helvetica;
+    font-weight: 600;
+    font-size: 35px;
+    box-sizing: border-box;
+  }
+
+  .btn-member {
+    display: flex;
+    flex-direction: column;
+
+    .spn-2 {
+      font-weight: 300;
+      font-size: 20px;
+    }
+  }
+
+}
+
+.end-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-evenly;
+}
+
+/*  POP UP INSERT ID*/
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  /* negro 60% opaco */
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.popup {
+  background: #F0EBE0;
+  padding: 30px;
+  width: 500px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-family: 'Afacad';
+
+  .btn-close {
+    align-self: flex-end;
+
+    button {
+      color: #214EA0;
+      font-weight: 600;
+      background-color: transparent;
+      border: 2px solid #214EA0;
+      border-radius: 3px;
+    }
+
+  }
+
+  label {
+    font-size: 45px;
+    font-weight: 500;
+    color: #214EA0;
+  }
+
+  input {
+    border: none;
+    font-size: 30px;
+    padding: 5px 12px;
+  }
+
+  .qr-code {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    font-size: 24px;
+  }
+
+  img {
+    background-color: white;
+  }
+}

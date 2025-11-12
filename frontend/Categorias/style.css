@@ -1,0 +1,215 @@
+/* Categories*/
+@import url('https://fonts.googleapis.com/css2?family=Afacad:wght@100;200;300;400;500;600;700;800;900&family=Kapakana&display=swap');
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+
+body {
+  background-color: #f6f3ed;
+  margin: 0;
+}
+
+.categories {
+  background-color: #f6f3ed;
+  overflow: auto;
+  width: 100%;
+  min-width: 800px;
+  min-height: 1280px;
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Texto */
+.categories .hey-what-s-up {
+  position: absolute;
+  top: 20%;
+  left: 15%;
+  transform: none;
+  font-family: "Afacad", Helvetica;
+  font-weight: 400;
+  color: #214ea0;
+  font-size: 75px;
+  letter-spacing: 0;
+  line-height: 58.5px;
+}
+.categories .text-wrapper {
+  font-weight: 700;
+}
+.categories .span {
+  font-family: "Afacad", Helvetica;
+  font-weight: 400; 
+}
+
+/*texto*/
+.categories .text {
+  position: relative;
+  font-family: "Afacad", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 32px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/*Rectangulos general*/
+.categories .rectangle {
+  background-color: #ffffff;
+  border: none;
+  border-radius: 35px;
+  width: 33%;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+}
+.categories .rectangle:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(251, 251, 252, 0.7);
+}
+.categories .rectangle:hover {
+  transform: scale(1.05);
+  filter: brightness(1.05);
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.6);
+}
+
+
+/*rectangulo bagels*/
+.categories .rectangle.bagels {
+  top: 40%;
+  left: 15%;    
+}
+/*imagen bagels*/
+.categories .image-bagels {
+  width: 80%;
+  height: 65%;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+/*rectangulo snacks*/
+.categories .rectangle.snacks {
+  top: 65%;
+  left: 15%;
+}
+/* imagen snacks*/
+.categories .image-snacks {
+  position: relative;
+  width: 70%;
+  height: 65%;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+/*combos*/
+.categories .rectangle.combos {
+  top: 65%;
+  left: 52%;
+}
+/*combos*/
+.categories .image-combos {
+  width: 60%;
+  height: 65%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  position: relative;
+}
+
+/*drinks*/
+.categories .rectangle.drinks {
+  top: 40%;
+  left: 52%;
+}
+/*drinks*/
+.categories .image-drinks {
+  width: 70%;
+  height: 68%;
+  position: relative;
+  transform: none;
+  aspect-ratio: 1;
+  text-align: center;
+  object-fit: cover;
+  top: -8%;
+}
+
+/* bloque principal asistente virtual*/
+.categories .asistente-virtual {
+  position: absolute ;
+  top: 3%;
+  left: 87%;
+  height: 6%;
+}
+
+/*logo*/
+.categories .logo {
+  top: 7%;
+  left: 13%;
+  width: 117px;
+  height: 131px;
+  aspect-ratio: 0.89;
+  position: absolute;
+  transform: none;
+}
+
+/*back*/
+.categories .corner-down-left {
+  position: absolute;
+  top: 3%;
+  left: 5%;
+  width: 6%;
+  aspect-ratio: 1;
+}
+
+.categories .grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 55%;
+  margin-bottom: 25%;
+
+}
+
+.back-button {
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 0;
+  cursor: pointer;
+  display: inline-block;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+.back-button img {
+  display: block;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+.back-button:hover img {
+  transform: scale(1.1);
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.3)) brightness(1.1);
+}
+
+
+@media (max-width: 768px) {
+  .hey-what-s-up {
+    font-size: 40px;
+    top: 10%;
+    left: 5%;
+  }
+
+  .rectangle-bagels,
+  .rectangle-snacks,
+  .rectangle-combos,
+  .rectangle-drinks {
+    width: 100%;
+    position: static;
+    margin-bottom: 2rem;
+  }
+
+  .categories {
+    flex-direction: column;
+    align-items: center;
+  }
+}
