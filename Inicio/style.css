@@ -73,16 +73,16 @@ body {
   font-size: 50px;
 }
 
-.inicio .img-bagels {
-  background-image: url("../img/bagels1.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: repeat-x;
+.img-bagels img {
   width: 100%;
-  min-height: 300px;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  height: auto;
+  display: block;
+  object-fit: contain; /* Mantiene la imagen completa y bien proporcionada */
+}
+
+.img-bagels {
+  width: 100%;
+  background: none;  /* Sin background-image */
 }
 
 .buttons {
