@@ -13,4 +13,6 @@ function SnacksWindow() {
 function CombosWindow() {
 // location.assign('../Combos/index.html');
 }
-
+function AsistenteVirtual(){
+    
+}
