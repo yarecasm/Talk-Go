@@ -7,33 +7,48 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <!-- Categories 1 --> 
-    <div class="categories">
-      <p class="hey-what-s-up">
-        <span class="text-wrapper">Hey,<br /></span> <span class="span">what’s up?</span>
-      </p>
-      <div class="rectangle"></div>
-      <img class="img" src="img/rectangle-4.png" />
-      <img class="rectangle-2" src="img/rectangle-5.png" />
-      <div class="div"></div>
-      <img class="image" src="img/image-5.png" />
-      <div class="text-wrapper-2">Bagels</div>
-      <img class="image-2" src="img/image-6.png" />
-      <img class="snacks" src="img/snacks.png" />
-      <img class="combos" src="img/combos.png" />
-      <img class="sin-ttulo" src="img/sin-t-tulo-1-1.png" />
-      <div class="text-wrapper-3">Drinks</div>
-      <img class="sin-ttulo-2" src="img/sin-t-tulo-2-1.png" />
-      <div class="asistente-virtual">
-        <img class="vector" src="img/vector-2.svg" />
-        <img class="vector-2" src="img/image.svg" />
-        <div class="virtual-assistant">Virtual<br />Assistant</div>
+      <!-- Categories 1 --> 
+      <div class="categories">
+        <div class="grid">
+        <p class="hey-what-s-up">
+          <span class="text-wrapper">Hey,<br /></span> <span class="span">what’s up?</span>
+        </p>
+          <!-- Bagels -->
+          <button class="rectangle-bagels" onclick="BagelsWindow()">
+            <img class="image-bagels" src="../img/Categorias/bagels.png" />
+            <div class="text">Bagels</div>
+          </button>
+
+          <!-- Drinks  -->
+          <button class="rectangle-drinks" onclick="DrinksWindow()">
+            <img class="image-drinks" src="../img/Categorias/drinks.png" />
+            <div class="text">Drinks</div>
+          </button>
+
+          <!-- Snacks -->
+          <button class="rectangle-snacks" onclick="SnacksWindow()">
+            <img class="image-snacks" src="../img/Categorias/snacks.png" />
+            <div class="text">Snacks</div>
+          </button>
+
+          <!-- Combos -->
+          <button class="rectangle-combos" onclick="CombosWindow()">
+            <img class="image-combos" src="../img/Categorias/combos.png" />
+            <div class="text">Combos</div>
+          </button>
+        </div>
+          <!-- Asistente virtual -->
+          <img class="asistente-virtual" src="../img/asistente-virtual.png" />
+          
+          <!-- Logo -->
+          <img class="logo" src="../img/logo.png" />
+          
+          <!-- Back -->
+          <button class="back-button" onclick="StartWindow()">
+            <img class="corner-down-left" src="../img/back.png" alt="Back" />
+          </button>
       </div>
-      <img class="sin-ttulo-3" src="img/sin-t-tulo-2-3.png" />
-      <div class="corner-down-left">
-        <img class="vector-3" src="img/vector-3.svg" /> <img class="vector-4" src="img/vector.svg" />
-      </div>
-    </div>
   </body>
+<script src="script.js"></script>
 </html>
 
