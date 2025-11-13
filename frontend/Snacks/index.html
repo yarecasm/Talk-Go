@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="global.css" />
+  <title>Bagel Ordering</title>
+</head>
+<body>
+  <div class="main-container">
+
+    <!-- Columna 1: Menú y navegación -->
+    <div class="menu-column">
+
+      <!-- Botón de regresar como imagen -->
+      <img src="../img/corner-down-left.png" alt="Back" class="backButton" />
+
+      <!-- Botón de asistente virtual -->
+      <div class="virtual-assistant">
+        <img src="../img/asistente virtual.png" alt="Assistant" />
+      </div>
+
+      <img src="../img/logo.png" alt="Brew & Bagel Logo" class="logo">
+
+      <!-- Navegación de categorías -->
+      <nav class="category-nav">
+        <button class="category-button bagelsbutton">Bagels</button>
+        <button class="category-button drinksButton">Drinks</button>
+        <button class="category-button active">Snacks</button>
+      </nav>
+
+      <!-- Galería de productos -->
+      <div class="product-gallery"> </div>
+    </div>
+
+    <!-- Columna 2: Resumen de orden -->
+    <div class="order-column">
+      <h2>My Order</h2>
+      <div id="order-items"></div>
+      <div class="order-total">
+        <strong>Total:</strong> $<span id="order-total">0.00</span>
+      </div>
+      <button class="order-button">ORDER</button>
+    </div>
+
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
