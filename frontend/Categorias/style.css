@@ -173,7 +173,7 @@ body {
 
 }
 
-.back-button {
+.button {
   background: transparent;
   border: none;
   outline: none;
@@ -182,11 +182,11 @@ body {
   display: inline-block;
   transition: transform 0.3s ease, filter 0.3s ease;
 }
-.back-button img {
+.button img {
   display: block;
   transition: transform 0.3s ease, filter 0.3s ease;
 }
-.back-button:hover img {
+.button:hover img {
   transform: scale(1.1);
   filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.3)) brightness(1.1);
 }

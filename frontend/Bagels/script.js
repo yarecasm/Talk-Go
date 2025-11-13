@@ -1,11 +1,11 @@
 
 const data = [
-  { id: "1", img: "../../img/Bagels/bacon bagel.png", nombre: "Bacon Bagel", precio: "$7.00" },
-  { id: "2", img: "../../img/Bagels/salmon bagel.png", nombre: "Salmon Bagel", precio: "$10.00" },
-  { id: "3", img: "../../img/Bagels/morning bagel.png", nombre: "Morning Bagel", precio: "$6.00" },
-  { id: "4", img: "../../img/Bagels/bigol bagel.png", nombre: "Bigol Bagel", precio: "$10.00" },
-  { id: "5", img: "../../img/Bagels/odi bagel.png", nombre: "Odi Bagel", precio: "$7.00" },
-  { id: "6", img: "../../img/Bagels/xolo bagel.png", nombre: "Xolo Bagel", precio: "$10.00" }
+  { id: "1", img: "../img/Bagels/bacon bagel.png", nombre: "Bacon Bagel", precio: "$7.00" },
+  { id: "2", img: "../img/Bagels/salmon bagel.png", nombre: "Salmon Bagel", precio: "$10.00" },
+  { id: "3", img: "../img/Bagels/morning bagel.png", nombre: "Morning Bagel", precio: "$6.00" },
+  { id: "4", img: "../img/Bagels/bigol bagel.png", nombre: "Bigol Bagel", precio: "$10.00" },
+  { id: "5", img: "../img/Bagels/odi bagel.png", nombre: "Odi Bagel", precio: "$7.00" },
+  { id: "6", img: "../img/Bagels/xolo bagel.png", nombre: "Xolo Bagel", precio: "$10.00" }
 ];
 
 const gallery = document.querySelector('.product-gallery');

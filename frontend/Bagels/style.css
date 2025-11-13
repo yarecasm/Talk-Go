@@ -38,10 +38,13 @@ body {
 }
 
 .logo {
-  width: 180px;
+  left: -33%;
+  top: 10px;
+  width: 110px;
+  aspect-ratio: 0.89;
   margin-top: 20px;
   margin-bottom: 10px;
-  display: block;
+  position: relative;
 }
 
 /* Columna 1 */
@@ -64,13 +67,33 @@ body {
 
 .virtual-assistant {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 40px;
+  right: 40px;
+  width: 50px; 
+  height: auto; 
   display: flex;
   align-items: center;
   gap: 8px;
   font-size: 14px;
   color: #214ea0;
+}
+
+.button {
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 0;
+  cursor: pointer;
+  display: inline-block;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+.button img {
+  display: block;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+.button:hover img {
+  transform: scale(1.1);
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.3)) brightness(1.1);
 }
 
 .category-nav {
