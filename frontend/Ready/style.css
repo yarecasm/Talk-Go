@@ -1,0 +1,137 @@
+body, html {
+  width: 100%;
+  height: 100%;
+  font-family: 'Afacad', Helvetica, Arial, sans-serif;
+}
+
+.ready {
+  height: 100%;
+  width: 100%;
+  background: #f1c1c4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  position: relative;
+}
+
+.main-texts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 60px;
+}
+
+.text-wrapper {
+  font-family: 'Afacad-Bold', Helvetica;
+  font-size: 64px;
+  font-weight: 700;
+  color: #f6f3ed;
+  letter-spacing: -2px;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.sub-text {
+  font-family: 'Afacad-Medium', Helvetica;
+  font-size: 36px;
+  color: #f6f3ed;
+  margin-bottom: 46px;
+  text-align: center;
+}
+
+.rewards-bar {
+  background: #e5e5d9;
+  border-radius: 30px;
+  width: 385px;
+  padding: 32px 32px 30px 32px;
+  box-shadow: 0 4px 24px 0 rgba(0,0,0,0.04);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 32px;
+}
+
+.rewards-label {
+  color: #373737;
+  font-size: 18px;
+  font-family: 'Afacad-Medium', Helvetica;
+  font-weight: 500;
+  letter-spacing: 0;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.rewards-icon img {
+  width: 20px;
+  height: 20px;
+  margin-left: 6px;
+}
+
+.rewards-progress {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.progress-text {
+  color: #214ea0;
+  font-size: 28px;
+  font-family: 'Afacad-Bold', Helvetica;
+  letter-spacing: 1px;
+}
+
+.progress-bar-bg {
+  height: 10px;
+  flex: 1;
+  position: relative;
+  background: #a585874c;
+  border-radius: 5px;
+  margin-left: 16px;
+}
+
+.progress-bar-fill {
+  background: #f1c1c4;
+  height: 100%;
+  border-radius: 5px;
+  width: 76%;
+}
+
+.bagel-pack {
+  margin-top: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pack-image {
+  width: 380px;
+  max-width: 95vw;
+  height: auto;
+  display: block;
+}
+
+/* Responsive styles */
+@media (max-width: 500px) {
+  .main-texts {
+    margin-top: 28px;
+  }
+  .rewards-bar {
+    width: 95vw;
+    padding: 18px 10px 14px 10px;
+  }
+  .text-wrapper {
+    font-size: 38px;
+  }
+  .sub-text {
+    font-size: 22px;
+    margin-bottom: 24px;
+  }
+  .pack-image {
+    width: 90vw;
+    margin-top: 12px;
+  }
+}
