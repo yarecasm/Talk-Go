@@ -24,6 +24,8 @@ body {
 }
 
 .inicio .DRIVE-THRU {
+  z-index: 1;
+  position: relative;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -83,6 +85,10 @@ body {
 .img-bagels {
   width: 100%;
   background: none;  /* Sin background-image */
+  margin-top: -120px;
+  display: flex;
+  z-index: 5;
+  position: relative;
 }
 
 .buttons {
