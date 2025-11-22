@@ -3,7 +3,7 @@ import db from "../db.js";
 
 const router = express.Router();
 
-// POST para registrar usuario
+// --- POST para registrar usuario
 router.post("/", (req, res) => {
     const { NOMBRE, CORREO, PASSWORD, TIPO_USUARIO } = req.body;
 
@@ -95,5 +95,91 @@ router.get("/clientes", (req, res) => {
         res.json(results);
     });
 });
+
+// --- DELETE eliminar usuario
+router.delete("/:id", (req, res) => {
+    const { id } = req.params;
+
+    // Validar que llega el ID
+    if (!id) {
+        return res.status(400).json({ error: "ID requerido" });
+    }
+
+    const sql = "DELETE FROM usuarios WHERE ID_USUARIO = ?";
+
+    db.query(sql, [id], (err, result) => {
+        if (err) return res.status(500).json({ error: err });
+
+        // Si no borró nada, no existe el usuario
+        if (result.affectedRows === 0) {
+            return res.status(404).json({ error: "Usuario no encontrado" });
+        }
+
+        res.json({
+            mensaje: "Usuario eliminado correctamente",
+            idEliminado: id
+        });
+    });
+});
+
+// --- PUT actualizar puntos de un usuario
+router.put("/:id/puntos", (req, res) => {
+    const { id } = req.params;
+    const { puntos } = req.body;
+
+    if (!id) {
+        return res.status(400).json({ error: "ID requerido" });
+    }
+
+    if (puntos === undefined) {
+        return res.status(400).json({ error: "Se requieren los puntos" });
+    }
+
+    const sql = "UPDATE usuarios SET PUNTOS_ACUMULADOS = ? WHERE ID_USUARIO = ?";
+
+    db.query(sql, [puntos, id], (err, result) => {
+        if (err) return res.status(500).json({ error: err });
+
+        if (result.affectedRows === 0) {
+            return res.status(404).json({ error: "Usuario no encontrado" });
+        }
+
+        res.json({
+            mensaje: "Puntos actualizados correctamente",
+            ID_USUARIO: id,
+            nuevosPuntos: puntos
+        });
+    });
+});
+
+// --- PUT actualizar contraseña de un usuario
+router.put("/:id/password", (req, res) => {
+    const { id } = req.params;
+    const { nuevaPassword } = req.body;
+
+    if (!nuevaPassword) {
+        return res.status(400).json({ error: "La nueva contraseña es requerida" });
+    }
+
+    const sql = `
+        UPDATE usuarios 
+        SET PASSWORD = ?
+        WHERE ID_USUARIO = ?
+    `;
+
+    db.query(sql, [nuevaPassword, id], (err, result) => {
+        if (err) return res.status(500).json({ error: err });
+
+        if (result.affectedRows === 0) {
+            return res.status(404).json({ error: "Usuario no encontrado" });
+        }
+
+        res.json({
+            mensaje: "Contraseña actualizada correctamente",
+            usuarioActualizado: id
+        });
+    });
+});
+
 
 export default router;

@@ -4,6 +4,7 @@ import db from "./db.js";
 import usuariosRoutes from "./routes/usuarios.js";
 import categoriasRoutes from "./routes/categorias.js";
 import productosRoutes from "./routes/productos.js";
+import recompensasRoutes from "./routes/recompensas.js"
 
 const app = express();
 app.use(cors());
@@ -14,6 +15,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/api/usuarios", usuariosRoutes);
 app.use("/api/categorias", categoriasRoutes);
 app.use("/api/productos", productosRoutes);
+app.use("/api/recompensas", recompensasRoutes);
 
 // Ruta de prueba
 app.get("/", (req, res) => {
