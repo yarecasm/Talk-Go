@@ -5,6 +5,7 @@ import usuariosRoutes from "./routes/usuarios.js";
 import categoriasRoutes from "./routes/categorias.js";
 import productosRoutes from "./routes/productos.js";
 import recompensasRoutes from "./routes/recompensas.js"
+import ordenRoutes from "./routes/orden.js";
 
 const app = express();
 app.use(cors());
@@ -16,6 +17,7 @@ app.use("/api/usuarios", usuariosRoutes);
 app.use("/api/categorias", categoriasRoutes);
 app.use("/api/productos", productosRoutes);
 app.use("/api/recompensas", recompensasRoutes);
+app.use("/api/orden", ordenRoutes);
 
 // Ruta de prueba
 app.get("/", (req, res) => {
