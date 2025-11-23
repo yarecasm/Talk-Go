@@ -112,6 +112,7 @@ document.querySelector('.snacksButton').addEventListener('click', () => {
 
 // Borrar carrito al hacer clic en ORDER
 document.querySelector('.order-button').addEventListener('click', () => {
+  window.location.href = '../Ready/index.html';
   cart = {};
   localStorage.removeItem('cart');
   updateOrderDisplay();

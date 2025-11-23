@@ -1,11 +1,9 @@
 
 const data = [
-  { id: "1", img: "../img/Bagels/bacon bagel.png", nombre: "Bacon Bagel", precio: "$7.00" },
-  { id: "2", img: "../img/Bagels/salmon bagel.png", nombre: "Salmon Bagel", precio: "$10.00" },
-  { id: "3", img: "../img/Bagels/morning bagel.png", nombre: "Morning Bagel", precio: "$6.00" },
-  { id: "4", img: "../img/Bagels/bigol bagel.png", nombre: "Bigol Bagel", precio: "$10.00" },
-  { id: "5", img: "../img/Bagels/odi bagel.png", nombre: "Odi Bagel", precio: "$7.00" },
-  { id: "6", img: "../img/Bagels/xolo bagel.png", nombre: "Xolo Bagel", precio: "$10.00" }
+  { id: "13", img: "../img/Snacks/bigñets.png", nombre: "Bigñets", precio: "$3.00" },
+  { id: "14", img: "../img/Snacks/coles.png", nombre: "Coles", precio: "$3.00" },
+  { id: "15", img: "../img/Snacks/french fries.png", nombre: "French Fries", precio: "$5.00" },
+  { id: "16", img: "../img/Snacks/sweet potato fries.png", nombre: "Sweet Potato Fries", precio: "$5.00" }
 ];
 
 const gallery = document.querySelector('.product-gallery');
@@ -106,12 +104,13 @@ document.querySelector('.drinksButton').addEventListener('click', () => {
   window.location.href = '../Drinks/index.html';
 });
 
-document.querySelector('.snacksButton').addEventListener('click', () => {
-  window.location.href = '../Snacks/index.html';
+document.querySelector('.bagelsButton').addEventListener('click', () => {
+  window.location.href = '../Bagels/index.html';
 });
 
 // Borrar carrito al hacer clic en ORDER
 document.querySelector('.order-button').addEventListener('click', () => {
+  window.location.href = '../Ready/index.html';
   cart = {};
   localStorage.removeItem('cart');
   updateOrderDisplay();
