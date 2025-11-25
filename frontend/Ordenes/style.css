@@ -1,0 +1,758 @@
+.orden {
+  background-color: #ffffff;
+  overflow: hidden;
+  width: 100%;
+  min-width: 800px;
+  min-height: 1280px;
+  position: relative;
+}
+
+.orden .rectangle {
+  right: 39px;
+  bottom: -40px;
+  width: 240px;
+  height: 1280px;
+  position: absolute;
+  transform: rotate(-90deg);
+}
+
+.orden .text-wrapper {
+  left: 474px;
+  position: absolute;
+  top: 658px;
+  transform: rotate(-90deg);
+  font-family: "Afacad-Medium", Helvetica;
+  font-weight: 500;
+  color: #000000;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: 17.4px;
+  white-space: nowrap;
+}
+
+.orden .div {
+  top: 610px;
+  left: 470px;
+  position: absolute;
+  transform: rotate(-90deg);
+  font-family: "Afacad-Medium", Helvetica;
+  font-weight: 500;
+  color: #827d7d;
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: 13.1px;
+  white-space: nowrap;
+}
+
+.orden .text-wrapper-2 {
+  top: 658px;
+  left: 346px;
+  position: absolute;
+  transform: rotate(-90deg);
+  font-family: "Afacad-Medium", Helvetica;
+  font-weight: 500;
+  color: #000000;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: 17.4px;
+  white-space: nowrap;
+}
+
+.orden .element {
+  top: 666px;
+  position: absolute;
+  left: 1047px;
+  width: 108px;
+  height: 31px;
+  transform: rotate(-90deg);
+}
+
+.orden .total {
+  top: 671px;
+  position: absolute;
+  left: 1040px;
+  width: 44px;
+  height: 16px;
+  transform: rotate(-90deg);
+}
+
+.orden .img {
+  top: 654px;
+  left: 1106px;
+  width: 160px;
+  height: 51px;
+  position: absolute;
+  transform: rotate(-90deg);
+}
+
+.orden .FINISH {
+  top: 672px;
+  position: absolute;
+  left: 1157px;
+  width: 59px;
+  height: 16px;
+  transform: rotate(-90deg);
+}
+
+.orden .order {
+  position: absolute;
+  top: 692px;
+  left: 27px;
+  transform: rotate(-90deg);
+  font-family: "Afacad-SemiBold", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 38px;
+  letter-spacing: 0;
+  line-height: 33.1px;
+}
+
+.orden .span {
+  font-weight: 600;
+}
+
+.orden .text-wrapper-3 {
+  font-family: "Afacad-Medium", Helvetica;
+  font-weight: 500;
+}
+
+.orden .line {
+  top: 678px;
+  left: 74px;
+  position: absolute;
+  width: 200px;
+  height: 1px;
+  transform: rotate(-90deg);
+  object-fit: cover;
+}
+
+.orden .line-2 {
+  top: 678px;
+  left: 202px;
+  position: absolute;
+  width: 200px;
+  height: 1px;
+  transform: rotate(-90deg);
+  object-fit: cover;
+}
+
+.orden .line-3 {
+  top: 678px;
+  left: 334px;
+  position: absolute;
+  width: 200px;
+  height: 1px;
+  transform: rotate(-90deg);
+  object-fit: cover;
+}
+
+.orden .text-wrapper-4 {
+  top: 606px;
+  left: 206px;
+  position: absolute;
+  transform: rotate(-90deg);
+  font-family: "Afacad-Medium", Helvetica;
+  font-weight: 500;
+  color: #827d7d;
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: 13.1px;
+  white-space: nowrap;
+}
+
+.orden .bacon-bagel {
+  top: 690px;
+  left: 189px;
+  width: 78px;
+  height: 78px;
+  position: absolute;
+  transform: rotate(-90deg);
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.orden .text-wrapper-5 {
+  position: absolute;
+  top: 723px;
+  left: 240px;
+  transform: rotate(-90deg);
+  font-family: "Afacad-Medium", Helvetica;
+  font-weight: 500;
+  color: #000000;
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: 13.1px;
+  white-space: nowrap;
+}
+
+.orden .text-wrapper-6 {
+  left: 216px;
+  position: absolute;
+  top: 658px;
+  transform: rotate(-90deg);
+  font-family: "Afacad-Medium", Helvetica;
+  font-weight: 500;
+  color: #000000;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: 17.4px;
+  white-space: nowrap;
+}
+
+.orden .laika-bagel {
+  top: 687px;
+  left: 318px;
+  width: 81px;
+  height: 81px;
+  aspect-ratio: 1;
+  object-fit: cover;
+  position: absolute;
+  transform: rotate(-90deg);
+}
+
+.orden .text-wrapper-7 {
+  top: 606px;
+  left: 338px;
+  position: absolute;
+  transform: rotate(-90deg);
+  font-family: "Afacad-Medium", Helvetica;
+  font-weight: 500;
+  color: #827d7d;
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: 13.1px;
+  white-space: nowrap;
+}
+
+.orden .text-wrapper-8 {
+  position: absolute;
+  top: 721px;
+  left: 370px;
+  transform: rotate(-90deg);
+  font-family: "Afacad-Medium", Helvetica;
+  font-weight: 500;
+  color: #000000;
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: 13.1px;
+  white-space: nowrap;
+}
+
+.orden .oreo-frappuccino {
+  position: absolute;
+  top: 716px;
+  left: 504px;
+  transform: rotate(-90deg);
+  font-family: "Afacad-Medium", Helvetica;
+  font-weight: 500;
+  color: #000000;
+  font-size: 15px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 13.1px;
+}
+
+.orden .bacon-bagel-2 {
+  top: 687px;
+  left: 445px;
+  width: 83px;
+  height: 83px;
+  position: absolute;
+  transform: rotate(-90deg);
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.orden .rectangle-2 {
+  right: 40px;
+  bottom: 240px;
+  width: 241px;
+  height: 1280px;
+  position: absolute;
+  transform: rotate(-90deg);
+}
+
+.orden .text-wrapper-9 {
+  top: 378px;
+  left: 474px;
+  position: absolute;
+  transform: rotate(-90deg);
+  font-family: "Afacad-Medium", Helvetica;
+  font-weight: 500;
+  color: #000000;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: 17.4px;
+  white-space: nowrap;
+}
+
+.orden .text-wrapper-10 {
+  top: 326px;
+  left: 469px;
+  position: absolute;
+  transform: rotate(-90deg);
+  font-family: "Afacad-Medium", Helvetica;
+  font-weight: 500;
+  color: #827d7d;
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: 13.1px;
+  white-space: nowrap;
+}
+
+.orden .text-wrapper-11 {
+  top: 378px;
+  left: 348px;
+  position: absolute;
+  transform: rotate(-90deg);
+  font-family: "Afacad-Medium", Helvetica;
+  font-weight: 500;
+  color: #000000;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: 17.4px;
+  white-space: nowrap;
+}
+
+.orden .element-2 {
+  top: 386px;
+  position: absolute;
+  left: 1047px;
+  width: 108px;
+  height: 31px;
+  transform: rotate(-90deg);
+}
+
+.orden .total-2 {
+  top: 391px;
+  position: absolute;
+  left: 1040px;
+  width: 44px;
+  height: 16px;
+  transform: rotate(-90deg);
+}
+
+.orden .rectangle-3 {
+  top: 374px;
+  left: 1106px;
+  width: 160px;
+  height: 51px;
+  position: absolute;
+  transform: rotate(-90deg);
+}
+
+.orden .FINISH-2 {
+  top: 392px;
+  position: absolute;
+  left: 1157px;
+  width: 59px;
+  height: 16px;
+  transform: rotate(-90deg);
+}
+
+.orden .p {
+  top: 412px;
+  position: absolute;
+  left: 27px;
+  transform: rotate(-90deg);
+  font-family: "Afacad-SemiBold", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 38px;
+  letter-spacing: 0;
+  line-height: 33.1px;
+}
+
+.orden .line-4 {
+  top: 398px;
+  left: 74px;
+  position: absolute;
+  width: 200px;
+  height: 1px;
+  transform: rotate(-90deg);
+  object-fit: cover;
+}
+
+.orden .line-5 {
+  top: 398px;
+  left: 202px;
+  position: absolute;
+  width: 200px;
+  height: 1px;
+  transform: rotate(-90deg);
+  object-fit: cover;
+}
+
+.orden .line-6 {
+  top: 398px;
+  left: 334px;
+  position: absolute;
+  width: 200px;
+  height: 1px;
+  transform: rotate(-90deg);
+  object-fit: cover;
+}
+
+.orden .text-wrapper-12 {
+  top: 326px;
+  left: 206px;
+  position: absolute;
+  transform: rotate(-90deg);
+  font-family: "Afacad-Medium", Helvetica;
+  font-weight: 500;
+  color: #827d7d;
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: 13.1px;
+  white-space: nowrap;
+}
+
+.orden .bacon-bagel-3 {
+  top: 410px;
+  left: 189px;
+  width: 78px;
+  height: 78px;
+  position: absolute;
+  transform: rotate(-90deg);
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.orden .text-wrapper-13 {
+  top: 443px;
+  position: absolute;
+  left: 240px;
+  transform: rotate(-90deg);
+  font-family: "Afacad-Medium", Helvetica;
+  font-weight: 500;
+  color: #000000;
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: 13.1px;
+  white-space: nowrap;
+}
+
+.orden .text-wrapper-14 {
+  top: 378px;
+  position: absolute;
+  left: 216px;
+  transform: rotate(-90deg);
+  font-family: "Afacad-Medium", Helvetica;
+  font-weight: 500;
+  color: #000000;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: 17.4px;
+  white-space: nowrap;
+}
+
+.orden .laika-bagel-2 {
+  top: 408px;
+  left: 322px;
+  width: 81px;
+  height: 81px;
+  aspect-ratio: 1;
+  object-fit: cover;
+  position: absolute;
+  transform: rotate(-90deg);
+}
+
+.orden .text-wrapper-15 {
+  top: 326px;
+  left: 338px;
+  position: absolute;
+  transform: rotate(-90deg);
+  font-family: "Afacad-Medium", Helvetica;
+  font-weight: 500;
+  color: #827d7d;
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: 13.1px;
+  white-space: nowrap;
+}
+
+.orden .text-wrapper-16 {
+  top: 441px;
+  left: 370px;
+  font-family: "Afacad-Medium", Helvetica;
+  font-weight: 500;
+  color: #000000;
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: 13.1px;
+  white-space: nowrap;
+  position: absolute;
+  transform: rotate(-90deg);
+}
+
+.orden .oreo-frappuccino-2 {
+  top: 436px;
+  position: absolute;
+  left: 504px;
+  transform: rotate(-90deg);
+  font-family: "Afacad-Medium", Helvetica;
+  font-weight: 500;
+  color: #000000;
+  font-size: 15px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 13.1px;
+}
+
+.orden .bacon-bagel-4 {
+  top: 408px;
+  left: 445px;
+  width: 83px;
+  height: 83px;
+  position: absolute;
+  transform: rotate(-90deg);
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.orden .rectangle-4 {
+  right: 38px;
+  bottom: 521px;
+  width: 238px;
+  height: 1280px;
+  position: absolute;
+  transform: rotate(-90deg);
+}
+
+.orden .text-wrapper-17 {
+  top: 94px;
+  left: 474px;
+  position: absolute;
+  transform: rotate(-90deg);
+  font-family: "Afacad-Medium", Helvetica;
+  font-weight: 500;
+  color: #000000;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: 17.4px;
+  white-space: nowrap;
+}
+
+.orden .text-wrapper-18 {
+  top: 47px;
+  left: 470px;
+  position: absolute;
+  transform: rotate(-90deg);
+  font-family: "Afacad-Medium", Helvetica;
+  font-weight: 500;
+  color: #827d7d;
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: 13.1px;
+  white-space: nowrap;
+}
+
+.orden .text-wrapper-19 {
+  top: 94px;
+  left: 346px;
+  position: absolute;
+  transform: rotate(-90deg);
+  font-family: "Afacad-Medium", Helvetica;
+  font-weight: 500;
+  color: #000000;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: 17.4px;
+  white-space: nowrap;
+}
+
+.orden .element-3 {
+  top: 103px;
+  position: absolute;
+  left: 1047px;
+  width: 108px;
+  height: 31px;
+  transform: rotate(-90deg);
+}
+
+.orden .total-3 {
+  top: 108px;
+  position: absolute;
+  left: 1040px;
+  width: 44px;
+  height: 16px;
+  transform: rotate(-90deg);
+}
+
+.orden .rectangle-5 {
+  top: 90px;
+  left: 1106px;
+  width: 160px;
+  height: 51px;
+  position: absolute;
+  transform: rotate(-90deg);
+}
+
+.orden .FINISH-3 {
+  top: 109px;
+  position: absolute;
+  left: 1157px;
+  width: 59px;
+  height: 16px;
+  transform: rotate(-90deg);
+}
+
+.orden .order-2 {
+  top: 129px;
+  position: absolute;
+  left: 27px;
+  transform: rotate(-90deg);
+  font-family: "Afacad-SemiBold", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 38px;
+  letter-spacing: 0;
+  line-height: 33.1px;
+}
+
+.orden .line-7 {
+  top: 116px;
+  left: 74px;
+  position: absolute;
+  width: 200px;
+  height: 1px;
+  transform: rotate(-90deg);
+  object-fit: cover;
+}
+
+.orden .line-8 {
+  top: 116px;
+  left: 202px;
+  position: absolute;
+  width: 200px;
+  height: 1px;
+  transform: rotate(-90deg);
+  object-fit: cover;
+}
+
+.orden .line-9 {
+  top: 116px;
+  left: 334px;
+  position: absolute;
+  width: 200px;
+  height: 1px;
+  transform: rotate(-90deg);
+  object-fit: cover;
+}
+
+.orden .text-wrapper-20 {
+  top: 43px;
+  left: 206px;
+  position: absolute;
+  transform: rotate(-90deg);
+  font-family: "Afacad-Medium", Helvetica;
+  font-weight: 500;
+  color: #827d7d;
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: 13.1px;
+  white-space: nowrap;
+}
+
+.orden .bacon-bagel-5 {
+  top: 127px;
+  left: 189px;
+  width: 78px;
+  height: 78px;
+  position: absolute;
+  transform: rotate(-90deg);
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.orden .text-wrapper-21 {
+  top: 160px;
+  position: absolute;
+  left: 240px;
+  transform: rotate(-90deg);
+  font-family: "Afacad-Medium", Helvetica;
+  font-weight: 500;
+  color: #000000;
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: 13.1px;
+  white-space: nowrap;
+}
+
+.orden .text-wrapper-22 {
+  top: 96px;
+  position: absolute;
+  left: 216px;
+  transform: rotate(-90deg);
+  font-family: "Afacad-Medium", Helvetica;
+  font-weight: 500;
+  color: #000000;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: 17.4px;
+  white-space: nowrap;
+}
+
+.orden .laika-bagel-3 {
+  position: absolute;
+  top: 124px;
+  left: 318px;
+  width: 81px;
+  height: 81px;
+  transform: rotate(-90deg);
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.orden .text-wrapper-23 {
+  top: 43px;
+  left: 338px;
+  position: absolute;
+  transform: rotate(-90deg);
+  font-family: "Afacad-Medium", Helvetica;
+  font-weight: 500;
+  color: #827d7d;
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: 13.1px;
+  white-space: nowrap;
+}
+
+.orden .text-wrapper-24 {
+  top: 158px;
+  left: 370px;
+  font-family: "Afacad-Medium", Helvetica;
+  font-weight: 500;
+  color: #000000;
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: 13.1px;
+  white-space: nowrap;
+  position: absolute;
+  transform: rotate(-90deg);
+}
+
+.orden .oreo-frappuccino-3 {
+  top: 152px;
+  position: absolute;
+  left: 504px;
+  transform: rotate(-90deg);
+  font-family: "Afacad-Medium", Helvetica;
+  font-weight: 500;
+  color: #000000;
+  font-size: 15px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 13.1px;
+}
+
+.orden .bacon-bagel-6 {
+  top: 124px;
+  left: 445px;
+  width: 83px;
+  height: 83px;
+  position: absolute;
+  transform: rotate(-90deg);
+  aspect-ratio: 1;
+  object-fit: cover;
+}
