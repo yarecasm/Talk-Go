@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-11-2025 a las 21:59:27
+-- Tiempo de generación: 24-11-2025 a las 16:50:20
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -49,10 +49,10 @@ CREATE TABLE `detalle_orden` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `orden`
+-- Estructura de tabla para la tabla `ordenes`
 --
 
-CREATE TABLE `orden` (
+CREATE TABLE `ordenes` (
   `ID_ORDEN` int(11) NOT NULL,
   `ID_USUARIO` int(11) NOT NULL,
   `FECHA` date NOT NULL,
@@ -64,16 +64,17 @@ CREATE TABLE `orden` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `producto`
+-- Estructura de tabla para la tabla `productos`
 --
 
-CREATE TABLE `producto` (
+CREATE TABLE `productos` (
   `ID_PRODUCTO` int(11) NOT NULL,
   `NOMBRE` varchar(100) NOT NULL,
   `DESCRIPCION` varchar(100) DEFAULT NULL,
   `ID_CATEGORIA` int(10) NOT NULL,
   `PRECIO` decimal(10,2) NOT NULL,
-  `ESTADO` tinyint(1) NOT NULL
+  `ESTADO` tinyint(1) NOT NULL,
+  `FOTO` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -86,9 +87,9 @@ CREATE TABLE `recompensas` (
   `ID_RECOMPENSA` int(11) NOT NULL,
   `NOMBRE` varchar(100) NOT NULL,
   `DESCRIPCION` varchar(100) NOT NULL,
-  `TIPO` enum('ganancia','por producto','porcentaje') NOT NULL,
+  `TIPO` enum('ganancia','gratis','porcentaje','2x1','3x2') NOT NULL,
   `PUNTOS` int(10) NOT NULL,
-  `VALOR_DESCUENTO` varchar(50) NOT NULL,
+  `VALOR_DESCUENTO` int(50) NOT NULL,
   `ID_PRODUCTO_ASOCIADO` int(11) NOT NULL,
   `ESTADO` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -133,17 +134,17 @@ ALTER TABLE `detalle_orden`
   ADD KEY `fk_detalleorden_producto` (`ID_PRODUCTO`);
 
 --
--- Indices de la tabla `orden`
+-- Indices de la tabla `ordenes`
 --
-ALTER TABLE `orden`
+ALTER TABLE `ordenes`
   ADD PRIMARY KEY (`ID_ORDEN`),
   ADD KEY `fk_orden_usuario` (`ID_USUARIO`),
   ADD KEY `fk_orden_recompensa` (`ID_RECOMPENSA`);
 
 --
--- Indices de la tabla `producto`
+-- Indices de la tabla `productos`
 --
-ALTER TABLE `producto`
+ALTER TABLE `productos`
   ADD PRIMARY KEY (`ID_PRODUCTO`),
   ADD KEY `fk_productos_categoria` (`ID_CATEGORIA`);
 
@@ -168,19 +169,19 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `ID_CATEGORIA` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_CATEGORIA` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT de la tabla `orden`
+-- AUTO_INCREMENT de la tabla `ordenes`
 --
-ALTER TABLE `orden`
+ALTER TABLE `ordenes`
   MODIFY `ID_ORDEN` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `producto`
+-- AUTO_INCREMENT de la tabla `productos`
 --
-ALTER TABLE `producto`
-  MODIFY `ID_PRODUCTO` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `productos`
+  MODIFY `ID_PRODUCTO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `recompensas`
@@ -202,27 +203,27 @@ ALTER TABLE `usuarios`
 -- Filtros para la tabla `detalle_orden`
 --
 ALTER TABLE `detalle_orden`
-  ADD CONSTRAINT `fk_detalleorden_orden` FOREIGN KEY (`ID_ORDEN`) REFERENCES `orden` (`ID_ORDEN`),
-  ADD CONSTRAINT `fk_detalleorden_producto` FOREIGN KEY (`ID_PRODUCTO`) REFERENCES `producto` (`ID_PRODUCTO`);
+  ADD CONSTRAINT `fk_detalleorden_orden` FOREIGN KEY (`ID_ORDEN`) REFERENCES `ordenes` (`ID_ORDEN`),
+  ADD CONSTRAINT `fk_detalleorden_producto` FOREIGN KEY (`ID_PRODUCTO`) REFERENCES `productos` (`ID_PRODUCTO`);
 
 --
--- Filtros para la tabla `orden`
+-- Filtros para la tabla `ordenes`
 --
-ALTER TABLE `orden`
+ALTER TABLE `ordenes`
   ADD CONSTRAINT `fk_orden_recompensa` FOREIGN KEY (`ID_RECOMPENSA`) REFERENCES `recompensas` (`ID_RECOMPENSA`),
   ADD CONSTRAINT `fk_orden_usuario` FOREIGN KEY (`ID_USUARIO`) REFERENCES `usuarios` (`ID_USUARIO`);
 
 --
--- Filtros para la tabla `producto`
+-- Filtros para la tabla `productos`
 --
-ALTER TABLE `producto`
+ALTER TABLE `productos`
   ADD CONSTRAINT `fk_productos_categoria` FOREIGN KEY (`ID_CATEGORIA`) REFERENCES `categoria` (`ID_CATEGORIA`);
 
 --
 -- Filtros para la tabla `recompensas`
 --
 ALTER TABLE `recompensas`
-  ADD CONSTRAINT `fk_recompensas_producto` FOREIGN KEY (`ID_PRODUCTO_ASOCIADO`) REFERENCES `producto` (`ID_PRODUCTO`);
+  ADD CONSTRAINT `fk_recompensas_producto` FOREIGN KEY (`ID_PRODUCTO_ASOCIADO`) REFERENCES `productos` (`ID_PRODUCTO`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
