@@ -1,182 +1,182 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="globals.css" />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div class="inventory">
-      <div class="menu">
-        <img class="sin-ttulo" src="img/sin-t-tulo-2-3.png" />
-        <img class="line" src="img/line-10.svg" />
-        <div class="rectangle"></div>
-        <div class="div"></div>
-        <div class="text-wrapper">Inventory</div>
-        <div class="text-wrapper-2">Rewards</div>
-      </div>
-      <div class="categories">
-        <div class="rectangle-2"></div>
-        <div class="text-wrapper-3">Bagels</div>
-        <div class="rectangle-3"></div>
-        <div class="text-wrapper-4">Drinks</div>
-        <div class="rectangle-4"></div>
-        <div class="text-wrapper-5">Snacks</div>
-        <div class="rectangle-5"></div>
-        <div class="rectangle-6"></div>
-        <div class="text-wrapper-6">Combos</div>
-        <div class="plus">
-          <img class="vector" src="img/vector-21.svg" /> <img class="img" src="img/vector-20.svg" />
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />   
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <img src="../img/logo.png" alt="Bagels & Bagels" class="logo">
+            <div class="nav-buttons">
+                <button class="nav-btn active">Inventory</button>
+                <button class="nav-btn inactive">Rewards</button>
+            </div>
         </div>
-      </div>
-      <div class="products">
-        <div class="product">
-          <div class="rectangle-7"></div>
-          <div class="text-wrapper-7">Bacon Bagel</div>
-          <div class="text-wrapper-8">Eggs, bacon and cheese</div>
-          <div class="text-wrapper-9">$7.00</div>
-          <div class="text-wrapper-10">Image</div>
-          <div class="text-wrapper-11">Name</div>
-          <div class="text-wrapper-12">Price</div>
-          <div class="text-wrapper-13">Description</div>
-          <div class="edit">
-            <img class="vector-2" src="img/vector-48.svg" /> <img class="vector-3" src="img/vector-12.svg" />
-          </div>
-          <div class="trash">
-            <img class="vector-4" src="img/vector-11.svg" />
-            <img class="vector-5" src="img/vector-46.svg" />
-            <img class="vector-6" src="img/vector-22.svg" />
-            <img class="vector-7" src="img/vector-5.svg" />
-          </div>
-          <div class="eye">
-            <img class="vector-8" src="img/vector-23.svg" /> <img class="vector-9" src="img/vector-50.svg" />
-          </div>
+
+        <!-- Categories -->
+        <div class="categories">
+            <button class="category-btn active">Bagels</button>
+            <button class="category-btn">Drinks</button>
+            <button class="category-btn">Snacks</button>
+            <button class="category-btn">Combos</button>
+            <button class="category-btn add">+</button>
         </div>
-        <div class="product-2">
-          <div class="rectangle-7"></div>
-          <div class="text-wrapper-7">Salmon Bagel</div>
-          <p class="text-wrapper-8">Cream cheese, salmon, cucumber and avocado</p>
-          <div class="text-wrapper-9">$10.00</div>
-          <div class="text-wrapper-10">Image</div>
-          <div class="text-wrapper-11">Name</div>
-          <div class="text-wrapper-12">Price</div>
-          <div class="text-wrapper-13">Description</div>
-          <div class="edit">
-            <img class="vector-2" src="img/vector-36.svg" /> <img class="vector-3" src="img/vector-32.svg" />
-          </div>
-          <div class="trash">
-            <img class="vector-4" src="img/vector-9.svg" />
-            <img class="vector-5" src="img/vector-52.svg" />
-            <img class="vector-6" src="img/vector-27.svg" />
-            <img class="vector-7" src="img/vector-26.svg" />
-          </div>
-          <div class="eye">
-            <img class="vector-8" src="img/vector-2.svg" /> <img class="vector-9" src="img/vector-40.svg" />
-          </div>
+
+        <!-- Products Grid -->
+        <div class="products-grid">
+            <!-- Bacon Bagel -->
+            <div class="product-card">
+                <img src="../img/Bagels/bacon bagel.png" alt="Bacon Bagel" class="product-image" onerror="this.style.background='#e2ddd2'">
+                <div class="product-info">
+                    <span class="product-label">Name</span>
+                    <div class="product-name">Bacon Bagel</div>
+                    <span class="product-label">Description</span>
+                    <div class="product-description">Eggs, bacon and cheese</div>
+                    <span class="product-label">Price</span>
+                    <div class="product-price">$7.00</div>
+                </div>
+                <div class="product-actions">
+                    <button class="action-btn" title="View">
+                        <img src="../img/eye.svg" alt="View">
+                    </button>
+                    <button class="action-btn" title="Edit">
+                        <img src="../img/edit.svg" alt="Edit">
+                    </button>
+                    <button class="action-btn" title="Delete">
+                        <img src="../img/trash.svg" alt="Delete">
+                    </button>
+                </div>
+            </div>
+
+            <!-- Salmon Bagel -->
+            <div class="product-card">
+                <img src="../img/Bagels/salmon bagel.png"  alt="Salmon Bagel" class="product-image" onerror="this.style.background='#e2ddd2'">
+                <div class="product-info">
+                    <span class="product-label">Name</span>
+                    <div class="product-name">Salmon Bagel</div>
+                    <span class="product-label">Description</span>
+                    <div class="product-description">Cream cheese, salmon, cucumber and avocado</div>
+                    <span class="product-label">Price</span>
+                    <div class="product-price">$10.00</div>
+                </div>
+                <div class="product-actions">
+                   <button class="action-btn" title="View">
+                        <img src="../img/eye.svg" alt="View">
+                    </button>
+                    <button class="action-btn" title="Edit">
+                        <img src="../img/edit.svg" alt="Edit">
+                    </button>
+                    <button class="action-btn" title="Delete">
+                        <img src="../img/trash.svg" alt="Delete">
+                    </button>
+                </div>
+            </div>
+
+            <!-- Morning Bagel -->
+            <div class="product-card">
+                <img src="../img/Bagels/morning bagel.png" alt="Morning Bagel" class="product-image" onerror="this.style.background='#e2ddd2'">
+                <div class="product-info">
+                    <span class="product-label">Name</span>
+                    <div class="product-name">Morning Bagel</div>
+                    <span class="product-label">Description</span>
+                    <div class="product-description">Spicy maple, turkey ham, bacon, and Gouda cheese</div>
+                    <span class="product-label">Price</span>
+                    <div class="product-price">$8.00</div>
+                </div>
+                <div class="product-actions">
+                    <button class="action-btn" title="View">
+                        <img src="../img/eye.svg" alt="View">
+                    </button>
+                    <button class="action-btn" title="Edit">
+                        <img src="../img/edit.svg" alt="Edit">
+                    </button>
+                    <button class="action-btn" title="Delete">
+                        <img src="../img/trash.svg" alt="Delete">
+                    </button>
+                </div>
+            </div>
+
+            <!-- Bigol Bagel -->
+            <div class="product-card">
+                <img src="../img/Bagels/bigol bagel.png" alt="Bigol Bagel" class="product-image" onerror="this.style.background='#e2ddd2'">
+                <div class="product-info">
+                    <span class="product-label">Name</span>
+                    <div class="product-name">Bigol Bagel</div>
+                    <span class="product-label">Description</span>
+                    <div class="product-description">Chipotle bagel filled with creamy onion filling</div>
+                    <span class="product-label">Price</span>
+                    <div class="product-price">$6.00</div>
+                </div>
+                <div class="product-actions">
+                    <button class="action-btn" title="View">
+                        <img src="../img/eye.svg" alt="View">
+                    </button>
+                    <button class="action-btn" title="Edit">
+                        <img src="../img/edit.svg" alt="Edit">
+                    </button>
+                    <button class="action-btn" title="Delete">
+                        <img src="../img/trash.svg" alt="Delete">
+                    </button>
+                </div>
+            </div>
+
+            <!-- Odi Bagel -->
+            <div class="product-card">
+                <img src="../img/Bagels/odi bagel.png" alt="Odi Bagel" class="product-image" onerror="this.style.background='#e2ddd2'">
+                <div class="product-info">
+                    <span class="product-label">Name</span>
+                    <div class="product-name">Odi Bagel</div>
+                    <span class="product-label">Description</span>
+                    <div class="product-description">Spicy maple, Gouda cheese, hash browns and crispy chicken</div>
+                    <span class="product-label">Price</span>
+                    <div class="product-price">$7.00</div>
+                </div>
+                <div class="product-actions">
+                    <button class="action-btn" title="View">
+                        <img src="../img/eye.svg" alt="View">
+                    </button>
+                    <button class="action-btn" title="Edit">
+                        <img src="../img/edit.svg" alt="Edit">
+                    </button>
+                    <button class="action-btn" title="Delete">
+                        <img src="../img/trash.svg" alt="Delete">
+                    </button>
+                </div>
+            </div>
+
+            <!-- Xolo Bagel -->
+            <div class="product-card">
+                <img src="../img/Bagels/xolo bagel.png" alt="Xolo Bagel" class="product-image" onerror="this.style.background='#e2ddd2'">
+                <div class="product-info">
+                    <span class="product-label">Name</span>
+                    <div class="product-name">Xolo Bagel</div>
+                    <span class="product-label">Description</span>
+                    <div class="product-description">Chipotle bagel with fried onions, arrachera, bell pepper, and onion</div>
+                    <span class="product-label">Price</span>
+                    <div class="product-price">$10.00</div>
+                </div>
+                <div class="product-actions">
+                    <button class="action-btn" title="View">
+                        <img src="../img/eye.svg" alt="View">
+                    </button>
+                    <button class="action-btn" title="Edit">
+                        <img src="../img/edit.svg" alt="Edit">
+                    </button>
+                    <button class="action-btn" title="Delete">
+                        <img src="../img/trash.svg" alt="Delete">
+                    </button>
+                </div>
+            </div>
         </div>
-        <div class="product-3">
-          <div class="rectangle-7"></div>
-          <div class="text-wrapper-7">Morning Bagel</div>
-          <p class="text-wrapper-8">Spicy maple, turkey ham, bacon, and Gouda cheese</p>
-          <div class="text-wrapper-9">$8.00</div>
-          <div class="text-wrapper-10">Image</div>
-          <div class="text-wrapper-11">Name</div>
-          <div class="text-wrapper-12">Price</div>
-          <div class="text-wrapper-13">Description</div>
-          <div class="edit">
-            <img class="vector-2" src="img/vector-30.svg" /> <img class="vector-3" src="img/vector-33.svg" />
-          </div>
-          <div class="trash">
-            <img class="vector-4" src="img/vector-16.svg" />
-            <img class="vector-5" src="img/vector-41.svg" />
-            <img class="vector-6" src="img/vector-8.svg" />
-            <img class="vector-7" src="img/vector-15.svg" />
-          </div>
-          <div class="eye">
-            <img class="vector-8" src="img/vector-13.svg" /> <img class="vector-9" src="img/vector-7.svg" />
-          </div>
-        </div>
-        <div class="product-4">
-          <div class="rectangle-7"></div>
-          <div class="text-wrapper-7">Bigol Bagel</div>
-          <p class="text-wrapper-8">Chipotle bagel filled with creamy onion filling</p>
-          <div class="text-wrapper-9">$6.00</div>
-          <div class="text-wrapper-10">Image</div>
-          <div class="text-wrapper-11">Name</div>
-          <div class="text-wrapper-12">Price</div>
-          <div class="text-wrapper-13">Description</div>
-          <div class="edit">
-            <img class="vector-2" src="img/vector-42.svg" /> <img class="vector-3" src="img/vector-24.svg" />
-          </div>
-          <div class="trash">
-            <img class="vector-4" src="img/vector-28.svg" />
-            <img class="vector-5" src="img/vector-14.svg" />
-            <img class="vector-6" src="img/vector-43.svg" />
-            <img class="vector-7" src="img/vector-44.svg" />
-          </div>
-          <div class="eye">
-            <img class="vector-8" src="img/vector-38.svg" /> <img class="vector-9" src="img/vector-18.svg" />
-          </div>
-        </div>
-        <div class="product-5">
-          <div class="rectangle-7"></div>
-          <div class="text-wrapper-7">Odi Bagel</div>
-          <p class="text-wrapper-8">Spicy maple, Gouda cheese, hash browns and crispy chicken</p>
-          <div class="text-wrapper-9">$7.00</div>
-          <div class="text-wrapper-10">Image</div>
-          <div class="text-wrapper-11">Name</div>
-          <div class="text-wrapper-12">Price</div>
-          <div class="text-wrapper-13">Description</div>
-          <div class="edit">
-            <img class="vector-2" src="img/vector-35.svg" /> <img class="vector-3" src="img/vector-29.svg" />
-          </div>
-          <div class="trash">
-            <img class="vector-4" src="img/vector-45.svg" />
-            <img class="vector-5" src="img/vector-10.svg" />
-            <img class="vector-6" src="img/vector-39.svg" />
-            <img class="vector-7" src="img/vector-6.svg" />
-          </div>
-          <div class="eye">
-            <img class="vector-8" src="img/vector-49.svg" /> <img class="vector-9" src="img/vector-17.svg" />
-          </div>
-        </div>
-        <div class="product-6">
-          <div class="rectangle-7"></div>
-          <div class="text-wrapper-7">Xolo Bagel</div>
-          <p class="text-wrapper-8">Chipotle bagel with fried onions, arrachera, bell pepper, and onion.</p>
-          <div class="text-wrapper-9">$10.00</div>
-          <div class="text-wrapper-10">Image</div>
-          <div class="text-wrapper-11">Name</div>
-          <div class="text-wrapper-12">Price</div>
-          <div class="text-wrapper-13">Description</div>
-          <div class="edit">
-            <img class="vector-2" src="img/vector-4.svg" /> <img class="vector-3" src="img/vector-19.svg" />
-          </div>
-          <div class="trash">
-            <img class="vector-4" src="img/vector-47.svg" />
-            <img class="vector-5" src="img/vector.svg" />
-            <img class="vector-6" src="img/vector-37.svg" />
-            <img class="vector-7" src="img/vector-3.svg" />
-          </div>
-          <div class="eye">
-            <img class="vector-8" src="img/image.svg" /> <img class="vector-9" src="img/vector-34.svg" />
-          </div>
-        </div>
-        <img class="laika-bagel" src="img/laika-bagel-1.png" />
-        <img class="bacon-bagel" src="img/bacon-bagel-1.png" />
-        <div class="rectangle-8"></div>
-        <div class="plus-circle">
-          <img class="vector-10" src="img/vector-51.svg" />
-          <img class="vector-11" src="img/vector-31.svg" />
-          <img class="vector-12" src="img/vector-25.svg" />
-        </div>
-        <div class="text-wrapper-14">Add bagel</div>
-        <img class="morning-bagel" src="img/morning-bagel-1.png" />
-        <img class="bacon-bagel-2" src="img/bacon-bagel-4.png" />
-        <img class="bacon-bagel-3" src="img/bacon-bagel-5.png" />
-        <img class="bacon-bagel-4" src="img/bacon-bagel-6.png" />
-      </div>
+
+        <!-- Add Product Button -->
+        <button class="add-product-btn">
+            <img src="../img/plus-circle.svg" alt="Add" class="add-icon">
+            Add bagel
+        </button>
     </div>
-  </body>
+</body>
 </html>
