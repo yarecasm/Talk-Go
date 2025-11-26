@@ -12,18 +12,35 @@ body {
   height: 100%;
 }
 
-/* a blue color as a generic focus style */
-button:focus-visible {
-  outline: 2px solid #4a90e2 !important;
-  outline: -webkit-focus-ring-color auto 5px !important;
-}
-
 a {
   text-decoration: none;
 }
 
-button:hover {
+.button {
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 0;
   cursor: pointer;
+  display: inline-block;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+.button img {
+  display: block;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+.button:hover img {
+  transform: scale(1.1);
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.3)) brightness(1.1);
+}
+
+/*back*/
+.corner-down-left {
+  position: absolute;
+  top: 3%;
+  left: 5%;
+  width: 6%;
+  aspect-ratio: 1;
 }
 
 body {
