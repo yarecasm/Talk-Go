@@ -1,20 +1,61 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="globals.css" />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <!-- Rewards --> 
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="globals.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="rewards-container">
 
+    <!-- Botón de regresar como imagen -->
+      <button class="button">
+        <img class="backButton" src="../img/back.png" alt="Back"/>
+      </button>
 
+    <header class="rewards-header">
+      <img src="../img/logo.png" alt="Brew & Bagel Logo" class="logo">
+      <h2 class="rewards-title">REWARDS</h2>
+    </header>
 
+    <section class="progress-section">
+      <h3 class="program-title">BREW & BAGEL REWARDS</h3>
+      <div class="progress-info">
+        <span class="points-earned">76/</span>
+        <span class="points-total">100 ★</span>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-filled" style="width:76%;"></div>
+      </div>
+      <div class="points-to-reward">
+        <span class="missing-points">24</span>
+        <span class="claim-text">to claim your Reward</span>
+      </div>
+    </section>
 
+    <h3 class="available-title">AVAILABLE REWARDS</h3>
 
+    <section class="rewards-grid">
+      <div class="reward-card">
+        <span class="reward-main">2X1</span>
+        <span class="reward-desc">Bacon Bagel</span>
+      </div>
+      <div class="reward-card">
+        <span class="reward-main">FREE</span>
+        <span class="reward-desc">Iced Latte</span>
+        <span class="reward-cond">With the purchase of any bagel</span>
+      </div>
+      <div class="reward-card">
+        <span class="reward-main">FREE</span>
+        <span class="reward-desc">Bigñets</span>
+      </div>
+      <div class="reward-card">
+        <span class="reward-main">50%<br>discount</span>
+        <span class="reward-desc">Any combo</span>
+      </div>
+    </section>
 
-
-  </body>
+  </div>
+</body>
 </html>
-
