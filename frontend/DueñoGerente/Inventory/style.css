@@ -215,3 +215,139 @@
             align-items: center;
             justify-content: center;
         }
+
+
+
+
+
+
+
+/* Editable Product Card */
+.product-card.editable {
+    background: #f0f8ff;
+    border: 2px dashed #214ea0;
+    font-family: 'Afacad';
+}
+
+.product-card input,
+.product-card textarea {
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 4px 8px;
+    font-family: inherit;
+    font-size: inherit;
+    background: white;
+}
+
+.product-card input:focus,
+.product-card textarea:focus {
+    outline: none;
+    border-color: #214ea0;
+}
+
+.product-card textarea {
+    resize: vertical;
+    min-height: 40px;
+}
+
+.product-card .editable-name {
+    font-size: 16px;
+    font-weight: 500;
+    color: #000;
+}
+
+.product-card .editable-description {
+    font-size: 13px;
+    color: #666;
+}
+
+.product-card .editable-price {
+    font-size: 16px;
+    font-weight: 500;
+    color: #000;
+    width: 80px;
+}
+
+.upload-image-box {
+    width: 70px;
+    height: 70px;
+    border-radius: 10px;
+    background: #e2ddd2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: 2px dashed #999;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.upload-image-box:hover {
+    border-color: #214ea0;
+    background: #d5cfc4;
+}
+
+.upload-image-box input[type="file"] {
+    display: none;
+}
+
+.upload-image-box img.preview {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.upload-placeholder {
+    font-size: 30px;
+    color: #999;
+}
+
+.save-product-btn {
+    width: 32px;
+    height: 32px;
+    border: none;
+    background: #214ea0;
+    color: white;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.save-product-btn:hover {
+    background: #1a3d80;
+    transform: scale(1.1);
+}
+
+.save-product-btn img {
+    width: 18px;
+    height: 18px;
+}
+
+.cancel-product-btn {
+    width: 32px;
+    height: 32px;
+    border: none;
+    background: #d32f2f;
+    color: white;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.cancel-product-btn:hover {
+    background: #b71c1c;
+    transform: scale(1.1);
+}
+
+.cancel-product-btn img {
+    width: 18px;
+    height: 18px;
+}
