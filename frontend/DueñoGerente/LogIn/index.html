@@ -1,57 +1,58 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="globals.css" />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div class="log-in">
-      <div class="frame">
-        <div class="sign-in-forms">
-          <div class="sign-in-form-web">
-            <div class="div">
-              <p class="element">Nice to see you again</p>
-              <div class="frame-2">
-                <div class="frame-3">
-                  <div class="input-configurator">
-                    <div class="input-configurator-2">
-                      <div class="satellite-input"><div class="hint">Login</div></div>
-                      <div class="regular-input-double-wrapper">
-                        <div class="regular-input-double">
-                          <div class="placeholder-value">
-                            <div class="frame-4"><div class="text-wrapper">Email or phone number</div></div>
-                          </div>
-                          <img class="input-icons" src="img/image.svg" />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="input-configurator">
-                    <div class="input-configurator-2">
-                      <div class="satellite-input"><div class="hint">Password</div></div>
-                      <div class="regular-input-double-wrapper">
-                        <div class="regular-input-double">
-                          <div class="placeholder-value">
-                            <div class="frame-4"><div class="text-wrapper">Enter password</div></div>
-                          </div>
-                          <img class="img" src="img/input-icons.svg" />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="description-wrapper"><div class="description">Forgot password?</div></div>
-              </div>
-            </div>
-            <img class="primary-button" src="img/primary-button-40px.png" />
-          </div>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Login</title>
+</head>
+
+<body>
+
+  <div class="login-container">
+
+    <!-- COLUMNA IZQUIERDA - IMAGEN -->
+    <div class="left">
+      <img src="../img/LogIn/LogIn.png" class="left-img" alt="Login image">
+    </div>
+
+    <!-- COLUMNA DERECHA - FORM -->
+    <div class="right">
+
+      <!-- Logo -->
+      <img src="../img/LogIn/logo.png" class="logo" alt="Logo">
+
+      <!-- Título -->
+      <h1 class="title">Nice to see you again</h1>
+
+      <!-- FORMULARIO -->
+      <div class="form-group">
+        <label class="label">Login</label>
+        <input type="text" placeholder="Email or phone number">
+      </div>
+
+      <div class="form-group">
+        <label class="label">Password</label>
+        <div class="input-password">
+          <input type="password" placeholder="Enter password">
+          <img src="../img/LogIn/Eye.png" class="eye" alt="Show password">
         </div>
       </div>
-      <div class="bottom-panel"><p class="head">© Talk &amp; Go 2025</p></div>
-      <img class="rectangle" src="img/rectangle-2757.png" />
-      <img class="sin-ttulo" src="img/sin-t-tulo-2-3.png" />
+
+      <!-- Forgot -->
+      <a href="#" class="forgot">Forgot password?</a>
+
+      <!-- BOTÓN (IMAGEN) -->
+      <button class="btn-img">
+        <img src="../img/LogIn/SignIn.png" alt="Sign in">
+      </button>
+
+      <!-- FOOTER -->
+      <p class="footer">© Talk & Go 2025</p>
+
     </div>
-  </body>
+
+  </div>
+
+</body>
 </html>
