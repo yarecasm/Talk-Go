@@ -6,6 +6,50 @@ function InventoryWindow() {
     location.assign('../Inventory/index.html');
 }
 
+// Cargar productos desde la base de datos
+async function loadProducts() {
+    try {
+        const response = await fetch('http://localhost:4000/api/productos');
+        const products = await response.json();
+        
+        const grid = document.getElementById('productsGrid');
+        grid.innerHTML = '';
+        
+        products.forEach((product) => {
+            const price = product.precio ? `$${parseFloat(product.precio).toFixed(2)}` : '$0.00';
+            const imagePath = product.FOTO ? `http://localhost:4000/uploads/${product.FOTO}` : 'img/default-bagel.png';
+            
+            grid.innerHTML += `
+                <div class="product-card">
+                    <img src="${imagePath}" alt="${product.nombre}" class="product-image" onerror="this.style.background='#e2ddd2'">
+                    <div class="product-info">
+                        <span class="product-label">Name</span>
+                        <div class="product-name">${product.nombre}</div>
+                        <span class="product-label">Description</span>
+                        <div class="product-description">${product.descripcion}</div>
+                        <span class="product-label">Price</span>
+                        <div class="product-price">${price}</div>
+                    </div>
+                    <div class="product-actions">
+                        <button class="action-btn" title="View">
+                            <img src="img/eye.svg" alt="View">
+                        </button>
+                        <button class="action-btn" title="Edit">
+                            <img src="img/edit.svg" alt="Edit">
+                        </button>
+                        <button class="action-btn" title="Delete" onclick="deleteProduct(${product.ID_PRODUCTO})">
+                            <img src="img/trash.svg" alt="Delete">
+                        </button>
+                    </div>
+                </div>
+            `;
+        });
+    } catch (error) {
+        console.error('Error loading products:', error);
+    }
+}
+
+
 // Para agregar la tarjeta al hacer click en "Add bagel"
 function addNewProduct() {
 
@@ -122,12 +166,16 @@ async function saveNewProduct() {
             
             // Eliminar la tarjeta editable
             cancelNewProduct();
+            await loadProducts(); //recarga productos 
 
         } else {
-            alert('Error saving product: ' + (data.error || 'Unknown error'));
+            console.error('Error completo:', data);
+            alert('Error saving product: ' + JSON.stringify(data.error || data));
         }
-    } catch (error) {
-        console.error('Error:', error);
-        alert('Error connecting to server');
-    }
+    } 
+    
+    // Cargar productos al inicio
+        document.addEventListener('DOMContentLoaded', function() {
+        loadProducts();
+    });
 }
