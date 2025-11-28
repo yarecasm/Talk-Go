@@ -308,7 +308,7 @@
     width: 32px;
     height: 32px;
     border: none;
-    background: #214ea0;
+    background: #f1c1c4;
     color: white;
     border-radius: 50%;
     cursor: pointer;
@@ -319,7 +319,7 @@
 }
 
 .save-product-btn:hover {
-    background: #1a3d80;
+    background: #c69da0;
     transform: scale(1.1);
 }
 
@@ -332,7 +332,7 @@
     width: 32px;
     height: 32px;
     border: none;
-    background: #d32f2f;
+    background: #f1c1c4;
     color: white;
     border-radius: 50%;
     cursor: pointer;
@@ -343,7 +343,7 @@
 }
 
 .cancel-product-btn:hover {
-    background: #b71c1c;
+    background: #c69da0;
     transform: scale(1.1);
 }
 

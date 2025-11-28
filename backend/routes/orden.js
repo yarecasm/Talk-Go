@@ -60,11 +60,6 @@ router.post("/", (req, res) => {
     }
 });
 
-import express from "express";
-import db from "../db.js";
-
-const router = express.Router();
-
 /* ============================================================
    GET Obtener órdenes activas con sus detalles
 ============================================================ */

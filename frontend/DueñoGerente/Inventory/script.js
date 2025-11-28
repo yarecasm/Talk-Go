@@ -8,12 +8,13 @@ function InventoryWindow() {
 
 // Para agregar la tarjeta al hacer click en "Add bagel"
 function addNewProduct() {
+
     const grid = document.getElementById('productsGrid');
     const newCard = document.createElement('div');
     newCard.className = 'product-card editable';
     newCard.innerHTML = `
         <div class="upload-image-box" onclick="document.getElementById('imageUpload').click()">
-            <span class="upload-placeholder"><img src="..img/upload-image.svg" alt="Subir imagen" width="40" height="40"></span>
+            <span class="upload-placeholder"><img src="../img/upload-image.svg" alt="Subir imagen" width="40" height="40"></span>
             <input type="file" id="imageUpload" accept="image/*" onchange="previewImage(event)">
             <img class="preview" id="imagePreview" style="display: none;">
         </div>
@@ -27,14 +28,34 @@ function addNewProduct() {
         </div>
         <div class="product-actions">
             <button class="save-product-btn" onclick="saveNewProduct()" title="Save">
-                <img src="../img/upload-up-arrow.svg" alt="Save">
+                ↑
             </button>
             <button class="cancel-product-btn" onclick="cancelNewProduct()" title="Cancel">
-                <img src="../img/cancel.svg" alt="Cancel">
+                ×
             </button>
         </div>
     `;
-    grid.insertBefore(newCard, grid.firstChild);
+    // Insertar al principio o al final según prefieras
+    if (grid.firstChild) {
+        grid.insertBefore(newCard, grid.firstChild);
+    } else {
+        grid.appendChild(newCard);
+    }
+
+    // Formatear cuando el usuario salga del campo
+    const priceInput = document.getElementById('newPrice');
+    priceInput.addEventListener('blur', function(e) {
+        let value = e.target.value.replace(/[^0-9.]/g, '');
+        
+        if (value) {
+            // Convertir a número y formatear con 2 decimales
+            const number = parseFloat(value);
+            if (!isNaN(number)) {
+                e.target.value = '$' + number.toFixed(2);
+            }
+        }
+    });
+
 }
 
 // Preview de la imagen
@@ -67,7 +88,7 @@ async function saveNewProduct() {
     const description = document.getElementById('newDescription').value;
     const price = document.getElementById('newPrice').value;
     const imageFile = document.getElementById('imageUpload').files[0];
-    const idCategoria = 1; // ID de la categoría "Bagels" - ajusta según tu base de datos
+    const idCategoria = 1; // ID de la categoría "Bagels" - ajustar según la base de datos
 
     // Validar que todos los campos estén llenos
     if (!name || !description || !price) {
@@ -85,11 +106,11 @@ async function saveNewProduct() {
     formData.append('nombre', name);
     formData.append('descripcion', description);
     formData.append('id_categoria', idCategoria);
-    formData.append('precio', price);
+    formData.append('precio', price.replace(/[^0-9.]/g, '')); // 👈 Limpia el $
     formData.append('foto', imageFile);
 
     try {
-        const response = await fetch('../backend/routes/productos', {
+        const response = await fetch('http://localhost:4000/api/productos', {
             method: 'POST',
             body: formData
         });
@@ -101,7 +122,7 @@ async function saveNewProduct() {
             
             // Eliminar la tarjeta editable
             cancelNewProduct();
-            
+
         } else {
             alert('Error saving product: ' + (data.error || 'Unknown error'));
         }
