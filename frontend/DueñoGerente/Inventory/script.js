@@ -7,9 +7,9 @@ function InventoryWindow() {
 }
 
 // Cargar productos desde la base de datos
-async function loadProducts() {
+async function loadProducts(idCategoria = 1) {
     try {
-        const response = await fetch('http://localhost:4000/api/productos');
+        const response = await fetch(`http://localhost:4000/api/productos/categoria/${idCategoria}`);
         const products = await response.json();
         
         const grid = document.getElementById('productsGrid');
@@ -50,7 +50,7 @@ async function loadProducts() {
 }
 
 
-// Para agregar la tarjeta al hacer click en "Add bagel"
+// Para agregar la tarjeta al hacer click en "Add new product"
 function addNewProduct() {
 
     const grid = document.getElementById('productsGrid');
@@ -64,7 +64,7 @@ function addNewProduct() {
         </div>
         <div class="product-info">
             <span class="product-label">Name</span>
-            <input type="text" class="editable-name" placeholder="Bagel name" id="newName">
+            <input type="text" class="editable-name" placeholder="Product name" id="newName">
             <span class="product-label">Description</span>
             <textarea class="editable-description" placeholder="Description" id="newDescription"></textarea>
             <span class="product-label">Price</span>
@@ -132,7 +132,7 @@ async function saveNewProduct() {
     const description = document.getElementById('newDescription').value;
     const price = document.getElementById('newPrice').value;
     const imageFile = document.getElementById('imageUpload').files[0];
-    const idCategoria = 1; // ID de la categoría "Bagels" - ajustar según la base de datos
+    const idCategoria = document.querySelector('.category-btn.active').dataset.category;
 
     // Validar que todos los campos estén llenos
     if (!name || !description || !price) {
@@ -166,7 +166,12 @@ async function saveNewProduct() {
             
             // Eliminar la tarjeta editable
             cancelNewProduct();
-            await loadProducts(); //recarga productos 
+            
+             // Obtener la categoría activa actual
+             const currentCategory = document.querySelector('.category-btn.active').dataset.category;
+
+            // Volver a cargar SOLO la categoría activa
+            await loadProducts(currentCategory);
 
         } else {
             console.error('Error completo:', data);
@@ -178,7 +183,28 @@ async function saveNewProduct() {
     }
     } 
     
+// Manejar clicks en las categorías
+document.querySelectorAll('.category-btn').forEach(btn => {
+    btn.addEventListener('click', function () {
+
+        // Quitar el botón activo actual
+        document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
+
+        // Activar el nuevo
+        this.classList.add('active');
+
+        // Obtener ID de categoría
+        const idCategoria = this.dataset.category;
+
+        // Cargar productos filtrados
+        loadProducts(idCategoria);
+    });
+});
+
+
     // Cargar productos al inicio
         document.addEventListener('DOMContentLoaded', function() {
         loadProducts();
     });
+
+    

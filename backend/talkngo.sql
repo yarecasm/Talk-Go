@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-11-2025 a las 16:50:20
--- Versión del servidor: 10.4.32-MariaDB
--- Versión de PHP: 8.2.12
+-- Tiempo de generación: 01-12-2025 a las 21:13:00
+-- Versión del servidor: 10.4.28-MariaDB
+-- Versión de PHP: 8.0.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -31,6 +31,16 @@ CREATE TABLE `categoria` (
   `ID_CATEGORIA` int(11) NOT NULL,
   `NOMBRE` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `categoria`
+--
+
+INSERT INTO `categoria` (`ID_CATEGORIA`, `NOMBRE`) VALUES
+(1, 'Bagels'),
+(2, 'Drinks'),
+(3, 'Snacks'),
+(4, 'Combos');
 
 -- --------------------------------------------------------
 
@@ -76,6 +86,28 @@ CREATE TABLE `productos` (
   `ESTADO` tinyint(1) NOT NULL,
   `FOTO` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `productos`
+--
+
+INSERT INTO `productos` (`ID_PRODUCTO`, `NOMBRE`, `DESCRIPCION`, `ID_CATEGORIA`, `PRECIO`, `ESTADO`, `FOTO`) VALUES
+(1, 'Golden Bagel', 'Garlic, butter, Italian pasta, gouda cheese, prosciutto and arugula', 1, 8.00, 1, '1764366332146.png'),
+(2, 'Bacon Bagel', 'Eggs, bacon and cheese', 1, 7.00, 1, '1764616667283.png'),
+(3, 'Salmon Bagel', 'Cream cheese, salmon, cucumber and avocado', 1, 10.00, 1, '1764616699838.png'),
+(4, 'Morning Bagel', 'Spicy maple, turkey ham, bacon, and Gouda cheese', 1, 8.00, 1, '1764616736516.png'),
+(5, 'Bigol Bagel', 'Chipotle bagel filled with creamy onion filling', 1, 6.00, 1, '1764616771341.png'),
+(6, 'Odi Bagel', 'Spicy maple, Gouda cheese, hash browns and crispy chicken', 1, 7.00, 1, '1764616803325.png'),
+(7, 'Cold Brew', 'Iced black coffee and vanilla cream', 2, 3.00, 1, '1764618913437.png'),
+(8, 'Iced Latte', 'Iced coffee milk based', 2, 3.00, 1, '1764618959428.png'),
+(9, 'Mocha', 'Hot coffee with cacao topped with whipped cream', 2, 5.00, 1, '1764618996582.png'),
+(10, 'Matcha Frappuccino', 'Milk based matcha frappe', 2, 5.00, 1, '1764619043311.png'),
+(11, 'Chai Frappuccino', 'Milk based chai tea', 2, 5.00, 1, '1764619080984.png'),
+(12, 'Oreo Frappuccino', 'Oreo Frappe', 2, 5.00, 1, '1764619105390.png'),
+(16, 'Bigñets', 'Dessert', 3, 3.00, 1, '1764619244441.png'),
+(17, 'Coles', 'Snack', 3, 3.00, 1, '1764619261675.png'),
+(18, 'French Fries', 'Fried potatos', 3, 5.00, 1, '1764619285727.png'),
+(19, 'Sweet Potato Fries', 'Sweet Potato', 3, 5.00, 1, '1764619317062.png');
 
 -- --------------------------------------------------------
 
@@ -169,7 +201,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `ID_CATEGORIA` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `ID_CATEGORIA` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `ordenes`
@@ -181,7 +213,7 @@ ALTER TABLE `ordenes`
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `ID_PRODUCTO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `ID_PRODUCTO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT de la tabla `recompensas`
