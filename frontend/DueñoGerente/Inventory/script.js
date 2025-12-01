@@ -24,21 +24,21 @@ async function loadProducts() {
                     <img src="${imagePath}" alt="${product.nombre}" class="product-image" onerror="this.style.background='#e2ddd2'">
                     <div class="product-info">
                         <span class="product-label">Name</span>
-                        <div class="product-name">${product.nombre}</div>
+                        <div class="product-name">${product.NOMBRE}</div>
                         <span class="product-label">Description</span>
-                        <div class="product-description">${product.descripcion}</div>
+                        <div class="product-description">${product.DESCRIPCION}</div>
                         <span class="product-label">Price</span>
-                        <div class="product-price">${price}</div>
+                        <div class="product-price">${product.PRECIO}</div>
                     </div>
                     <div class="product-actions">
                         <button class="action-btn" title="View">
-                            <img src="img/eye.svg" alt="View">
+                            <img src="../img/eye.svg" alt="View">
                         </button>
                         <button class="action-btn" title="Edit">
-                            <img src="img/edit.svg" alt="Edit">
+                            <img src="../img/edit.svg" alt="Edit">
                         </button>
                         <button class="action-btn" title="Delete" onclick="deleteProduct(${product.ID_PRODUCTO})">
-                            <img src="img/trash.svg" alt="Delete">
+                            <img src="../img/trash.svg" alt="Delete">
                         </button>
                     </div>
                 </div>
@@ -172,10 +172,13 @@ async function saveNewProduct() {
             console.error('Error completo:', data);
             alert('Error saving product: ' + JSON.stringify(data.error || data));
         }
+        } catch (error) {  // 👈 Agregué el catch que faltaba
+        console.error('Error:', error);
+        alert('Error connecting to server: ' + error.message);
+    }
     } 
     
     // Cargar productos al inicio
         document.addEventListener('DOMContentLoaded', function() {
         loadProducts();
     });
-}
