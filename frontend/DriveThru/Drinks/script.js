@@ -1,4 +1,5 @@
 import { obtenerProductosPorCategoria } from "../../services/productos.js";
+import { registrarOrden } from "../../services/orden.js";
 
 const gallery = document.querySelector('.product-gallery');
 const orderItems = document.getElementById('order-items');
@@ -117,6 +118,35 @@ function decreaseQuantity(id) {
   }
 }
 
+function buildOrderData() {
+  const usuarioId = localStorage.getItem("usuarioId");
+  if (!usuarioId) throw new Error("Sin usuarioId en localStorage");
+
+  const fecha = new Date().toISOString().split("T")[0]; // YYYY-MM-DD
+
+  const detalles = Object.keys(cart).map(id => {
+    const item = cart[id];
+    return {
+      ID_PRODUCTO: parseInt(id),
+      PRECIO_UNITARIO: item.price,
+      CANTIDAD: item.quantity,
+      SUBTOTAL: item.price * item.quantity
+    };
+  });
+
+  if (detalles.length === 0) throw new Error("El carrito está vacío");
+
+  return {
+    ID_USUARIO: parseInt(usuarioId),
+    FECHA: fecha,
+    TOTAL: total,            
+    ESTADO: "activa",        
+    ID_RECOMPENSA: null,     
+    detalles
+  };
+}
+
+
 
 // Navegación entre categorías
 document.querySelector('.backButton').addEventListener('click', () => {
@@ -132,9 +162,20 @@ document.querySelector('.snacksButton').addEventListener('click', () => {
 });
 
 // Borrar carrito al hacer clic en ORDER
-document.querySelector('.order-button').addEventListener('click', () => {
-  window.location.href = '../Ready/index.html';
-  cart = {};
-  localStorage.removeItem('cart');
-  updateOrderDisplay();
+document.querySelector('.order-button').addEventListener('click', async () => {
+  try {
+    const ordenData = buildOrderData();
+    const result = await registrarOrden(ordenData);
+    console.log("Orden registrada:", result);
+
+    // Limpia solo después de registrar con éxito
+    cart = {};
+    localStorage.removeItem('cart');
+    updateOrderDisplay();
+
+    // window.location.href = '../Ready/index.html';
+  } catch (err) {
+    console.error("Error registrando la orden:", err);
+    alert("Hubo un problema al registrar tu orden.");
+  }
 });

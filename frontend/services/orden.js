@@ -26,7 +26,7 @@ const API_URL = "http://localhost:4000/api";
 };
 --------------------------------------------------------- */
 export async function registrarOrden(ordenData) {
-    const response = await fetch(`${API_URL}/ordenes`, {
+    const response = await fetch(`${API_URL}/orden`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(ordenData),
@@ -45,7 +45,7 @@ export async function registrarOrden(ordenData) {
    GET obtener órdenes activas con sus detalles
 --------------------------------------------------------- */
 export async function obtenerOrdenesActivas() {
-    const response = await fetch(`${API_URL}/ordenes/activas`, {
+    const response = await fetch(`${API_URL}/orden/activas`, {
         method: "GET",
         headers: { "Content-Type": "application/json" },
     });
@@ -62,8 +62,8 @@ export async function obtenerOrdenesActivas() {
 /* ---------------------------------------------------------
    GET obtener todas las órdenes con sus detalles
 --------------------------------------------------------- */
-export async function obtenerOrdenesActivas() {
-    const response = await fetch(`${API_URL}/ordenes/historial`, {
+export async function obtenerOrdenesHistorial() {
+    const response = await fetch(`${API_URL}/orden/historial`, {
         method: "GET",
         headers: { "Content-Type": "application/json" },
     });
@@ -82,7 +82,7 @@ export async function obtenerOrdenesActivas() {
    PUT marcar orden como inactiva (terminada)
 --------------------------------------------------------- */
 export async function inactivarOrden(idOrden) {
-    const response = await fetch(`${API_URL}/ordenes/${idOrden}/terminada`, {
+    const response = await fetch(`${API_URL}/orden/${idOrden}/terminada`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
     });
