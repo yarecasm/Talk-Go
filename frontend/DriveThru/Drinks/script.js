@@ -8,7 +8,7 @@ let cart = JSON.parse(localStorage.getItem('cart')) || {};
 let total = 0;
 
 // Ruta base para las fotos
-const rutaFotos = "http://localhost:4000/UPLOADS/2";
+const rutaFotos = "http://localhost:4000/uploads/2";
 
 updateOrderDisplay();
 
@@ -20,32 +20,22 @@ async function cargarProductos() {
 
     gallery.innerHTML = ""; // limpia la galería
 
+    const rutaFotos = "http://localhost:4000/uploads/";
     productos.forEach(producto => {
       const button = document.createElement('button');
       button.className = 'product-card';
-
-      const fotoUrl = rutaFotos + producto.FOTO;
-
-      /*
       button.setAttribute('data-name', producto.NOMBRE);
       button.setAttribute('data-price', producto.PRECIO);
       button.setAttribute('data-img', producto.FOTO); // aquí debe venir la URL de la imagen
-      */
 
       button.innerHTML = `
-        <div class="div-img"><img src="${fotoUrl}" alt="${producto.NOMBRE}" class="product-img"/></div>
+        <div class="div-img"><img src="${rutaFotos + producto.FOTO}" alt="${producto.NOMBRE}" class='product-img'/></div>
         <div class="product-name">${producto.NOMBRE}</div>
         <div class="product-price">$${producto.PRECIO}</div>
       `;
 
       button.addEventListener('click', () => {
-        addToOrder({
-          ID_PRODUCTO: producto.ID_PRODUCTO,
-          NOMBRE: producto.NOMBRE,
-          PRECIO: producto.PRECIO,
-          FOTO: fotoUrl // URL completa
-        });
-
+        addToOrder(producto);
       });
 
       gallery.appendChild(button);
@@ -81,7 +71,7 @@ function updateOrderDisplay() {
   orderItems.innerHTML = '';
   total = 0;
 
-  Object.keys(cart).forEach(id => {
+  for (const id in cart) {
     const item = cart[id];
     total += item.price * item.quantity;
 
@@ -95,27 +85,18 @@ function updateOrderDisplay() {
         <div class="price">$${(item.price * item.quantity).toFixed(2)}</div>
       </div>
       <div class="order-controls">
-        <button class="btn-dec">−</button>
+        <button onclick="decreaseQuantity('${id}')">−</button>
         <span>${item.quantity}</span>
-        <button class="btn-inc">+</button>
+        <button onclick="increaseQuantity('${id}')">+</button>
       </div>
     `;
 
-    // Listeners para + y −
-    orderItem.querySelector('.btn-inc').addEventListener('click', () => {
-      increaseQuantity(id);
-    });
-    orderItem.querySelector('.btn-dec').addEventListener('click', () => {
-      decreaseQuantity(id);
-    });
-
     orderItems.appendChild(orderItem);
-  });
+  }
 
   orderTotal.textContent = `${total.toFixed(2)}`;
   localStorage.setItem('cart', JSON.stringify(cart));
 }
-
 
 
 // Funciones para modificar cantidad

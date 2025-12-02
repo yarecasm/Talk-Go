@@ -1,5 +1,13 @@
 const API_URL = "http://localhost:4000/api";
 
+
+export async function crearUsuarioInvitado() {
+  const response = await fetch(`${API_URL}/usuarios/guest`, {
+    method: "POST"
+  });
+  return await response.json();
+}
+
 export async function registrarUsuario(usuario) {
     const response = await fetch(`${API_URL}/usuarios`, {
         method: "POST",

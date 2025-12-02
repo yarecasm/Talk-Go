@@ -3,6 +3,27 @@ import db from "../db.js";
 
 const router = express.Router();
 
+// Crear usuario invitado
+router.post("/guest", (req, res) => {
+  const correoFake = `guest_${Date.now()}@invitado.com`;
+
+  const sql = "INSERT INTO usuarios (NOMBRE, CORREO, PASSWORD, TIPO_USUARIO, PUNTOS_ACUMULADOS) VALUES (?, ?, ?, ?, ?)";
+
+  db.query(sql, ["Invitado", correoFake, "", "INVITADO", 0], (err, result) => {
+    if (err) {
+      console.error(err);
+      return res.status(500).json({ error: "Error creando usuario invitado" });
+    }
+
+    res.json({
+      ID_USUARIO: result.insertId,
+      NOMBRE: "Invitado",
+      TIPO_USUARIO: "INVITADO"
+    });
+  });
+});
+
+
 // --- POST para registrar usuario
 router.post("/", (req, res) => {
     const { NOMBRE, CORREO, PASSWORD, TIPO_USUARIO } = req.body;
