@@ -260,3 +260,7 @@ document.querySelector('.order-button').addEventListener('click', async () => {
     alert("Hubo un problema al registrar tu orden.");
   }
 });
+
+
+window.increaseQuantity = increaseQuantity;
+window.decreaseQuantity = decreaseQuantity;
