@@ -254,7 +254,7 @@ document.querySelector('.order-button').addEventListener('click', async () => {
     localStorage.removeItem('cart');
     updateOrderDisplay();
 
-    // window.location.href = '../Ready/index.html';
+    window.location.href = '../Ready/index.html';
   } catch (err) {
     console.error("Error registrando la orden:", err);
     alert("Hubo un problema al registrar tu orden.");
