@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="sign-in">
+      <img class="sin-ttulo" src="logo.png" alt="Brew&Bagel Logo" />
+      
+      <div class="element">Join Brew&amp;Bagel Rewards</div>
+      
+      <div class="input-configurator">
+        <div class="satellite-input"><div class="text-wrapper">Sign in</div></div>
+        <div class="regular-input-double-wrapper">
+          <div class="regular-input-double">
+            <input type="text" class="input-field" placeholder="Email or phone number" />
+          </div>
+        </div>
+      </div>
+      
+      <div class="input-configurator-2">
+        <div class="satellite-input"><div class="text-wrapper">Name/Alias</div></div>
+        <div class="regular-input-double-wrapper">
+          <div class="regular-input-double">
+            <input type="text" class="input-field" placeholder="Full name or alias" />
+          </div>
+        </div>
+      </div>
+      
+      <div class="input-configurator-3">
+        <div class="satellite-input"><div class="text-wrapper">Password</div></div>
+        <div class="regular-input-double-wrapper">
+          <div class="regular-input-double">
+            <input type="password" class="input-field" placeholder="Enter password" id="password" />
+            <svg class="eye-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="togglePassword('password')">
+              <path d="M10 4C5 4 1.73 7.11 1 10c.73 2.89 4 6 9 6s8.27-3.11 9-6c-.73-2.89-4-6-9-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm0-6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" fill="#808080"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+      
+      <div class="input-configurator-4">
+        <div class="satellite-input"><div class="text-wrapper">Confirm password</div></div>
+        <div class="regular-input-double-wrapper">
+          <div class="regular-input-double">
+            <input type="password" class="input-field" placeholder="Enter password" id="confirmPassword" />
+            <svg class="eye-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="togglePassword('confirmPassword')">
+              <path d="M10 4C5 4 1.73 7.11 1 10c.73 2.89 4 6 9 6s8.27-3.11 9-6c-.73-2.89-4-6-9-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm0-6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" fill="#808080"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+      
+     <button class="primary-button" onclick="showWelcomeScreen()">Sign in</button>
+      
+      <div class="bottom-panel">
+        <p class="head">© Talk &amp; Go 2025</p>
+      </div>
+    </div>
+
+  </body>
+  <script src="script.js"></script>
+</html>
