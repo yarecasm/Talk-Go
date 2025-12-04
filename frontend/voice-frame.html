@@ -1,0 +1,8 @@
+<script type="module">
+    import { initVoiceCommands } from "./voiceController.js";
+    // Iniciar voz
+    initVoiceCommands((message) => {
+        window.parent.postMessage(message, "*");
+    });
+
+</script>

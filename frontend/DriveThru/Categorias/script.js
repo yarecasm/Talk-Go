@@ -11,8 +11,34 @@ function SnacksWindow() {
     location.assign('../Snacks/index.html');
 }
 function CombosWindow() {
-// location.assign('../Combos/index.html');
+    // location.assign('../Combos/index.html');
 }
-function AsistenteVirtual(){
-    
+function AsistenteVirtual() {
+
 }
+
+// ACCIONES DE VOZ
+window.addEventListener("message", (event) => {
+    if (event.data.type !== "VOICE_ACTION") return;
+    switch (event.data.action) {
+        case "OPEN_CATEGORY":
+            console.log(event.data.code);
+            switch (event.data.code) {
+                case "snacks":
+                    SnacksWindow();
+                    break;
+                case "bagels":
+                    BagelsWindow();
+                    break;
+                case "combos":
+                    CombosWindow();
+                    break;
+                case "drinks":
+                    DrinksWindow();
+                    break;
+                default:
+                    return;
+            }
+            break;
+    }
+});

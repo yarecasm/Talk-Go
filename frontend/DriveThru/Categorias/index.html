@@ -1,56 +1,59 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta charset="utf-8" />
-    <!-- <link rel="stylesheet" href="globals.css" /> -->
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-      <!-- Categories 1 --> 
-      <div class="categories">
-        <div class="grid">
-        <p class="hey-what-s-up">
-          <span class="text-wrapper">Hey,<br /></span> <span class="span">what’s up?</span>
-        </p>
-          <!-- Bagels -->
-          <button class="rectangle bagels" onclick="BagelsWindow()">
-            <img class="image-bagels" src="../img/Categorias/bagels.png" />
-            <div class="text">Bagels</div>
-          </button>
 
-          <!-- Drinks  -->
-          <button class="rectangle drinks" onclick="DrinksWindow()">
-            <img class="image-drinks" src="../img/Categorias/drinks.png" />
-            <div class="text">Drinks</div>
-          </button>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" />
+  <!-- <link rel="stylesheet" href="globals.css" /> -->
+  <link rel="stylesheet" href="style.css" />
+</head>
 
-          <!-- Snacks -->
-          <button class="rectangle snacks" onclick="SnacksWindow()">
-            <img class="image-snacks" src="../img/Categorias/snacks.png" />
-            <div class="text">Snacks</div>
-          </button>
+<body>
+  <!-- Categories 1 -->
+  <div class="categories">
+    <div class="grid">
+      <p class="hey-what-s-up">
+        <span class="text-wrapper">Hey,<br /></span> <span class="span">what’s up?</span>
+      </p>
+      <!-- Bagels -->
+      <button class="rectangle bagels" onclick="BagelsWindow()">
+        <img class="image-bagels" src="../img/Categorias/bagels.png" />
+        <div class="text">Bagels</div>
+      </button>
 
-          <!-- Combos -->
-          <button class="rectangle combos" onclick="CombosWindow()">
-            <img class="image-combos" src="../img/Categorias/combos.png" />
-            <div class="text">Combos</div>
-          </button>
-        </div>
-          <!-- Asistente virtual -->
-           <button class="button" onclick="AsistenteVirtual()">
-              <img class="asistente-virtual" src="../img/asistente-virtual.png" />
-           </button>
-          
-          <!-- Logo -->
-          <img class="logo" src="../img/logo.png" />
-          
-          <!-- Back -->
-          <button class="button" onclick="StartWindow()">
-            <img class="corner-down-left" src="../img/back.png" alt="Back" />
-          </button>
-      </div>
-  </body>
+      <!-- Drinks  -->
+      <button class="rectangle drinks" onclick="DrinksWindow()">
+        <img class="image-drinks" src="../img/Categorias/drinks.png" />
+        <div class="text">Drinks</div>
+      </button>
+
+      <!-- Snacks -->
+      <button class="rectangle snacks" onclick="SnacksWindow()">
+        <img class="image-snacks" src="../img/Categorias/snacks.png" />
+        <div class="text">Snacks</div>
+      </button>
+
+      <!-- Combos -->
+      <button class="rectangle combos" onclick="CombosWindow()">
+        <img class="image-combos" src="../img/Categorias/combos.png" />
+        <div class="text">Combos</div>
+      </button>
+    </div>
+    <!-- Asistente virtual -->
+    <button class="button" onclick="AsistenteVirtual()">
+      <img class="asistente-virtual" src="../img/asistente-virtual.png" />
+    </button>
+
+    <!-- Logo -->
+    <img class="logo" src="../img/logo.png" />
+
+    <!-- Back -->
+    <button class="button" onclick="StartWindow()">
+      <img class="corner-down-left" src="../img/back.png" alt="Back" />
+    </button>
+  </div>
+  <iframe id="voice-frame" src="../../voice-frame.html" style="display:none;"></iframe>
+</body>
 <script src="script.js"></script>
-</html>
 
+</html>
