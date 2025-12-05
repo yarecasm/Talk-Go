@@ -79,8 +79,8 @@ body {
 
 /*rectangulo bagels*/
 .categories .rectangle.bagels {
-  /*top: 40%;
-  left: 15%;*/    
+  top: 40%;
+  left: 15%;  
 }
 /*imagen bagels*/
 .categories .image-bagels {
@@ -92,8 +92,8 @@ body {
 
 /*rectangulo snacks*/
 .categories .rectangle.snacks {
-  /*top: 65%;
-  left: 15%;*/
+  top: 65%;
+  left: 15%;
 }
 /* imagen snacks*/
 .categories .image-snacks {
