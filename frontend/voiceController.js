@@ -1,8 +1,10 @@
 import { obtenerCategorias } from "./services/categorias.js";
+import { obtenerProductosPorCategoria } from "./services/productos.js";
 
 // Estado global del voice chat
 export const appState = {
     action: null,
+    actualCategory: null,
 };
 
 let shouldRestartRecognition = true;
@@ -64,22 +66,17 @@ export function initVoiceCommands(sendToParent) {
         ];
         if (notMemberCode.some(cmd => transcript.includes(cmd))) {
 
-            speak("Oki. ¿Qué menú quieres ver?");
-
-
-            shouldRestartRecognition = false;
-            recognition.stop();
+            speak("¿Qué menú quieres ver?");
 
             appState.action = "OPEN_GUEST_ORDER";
+
+            // shouldRestartRecognition = false;
+            //recognition.stop();
 
             sendToParent({
                 type: "VOICE_ACTION",
                 action: "OPEN_GUEST_ORDER"
             });
-
-            shouldRestartRecognition = true;
-
-            return;
         }
 
         // --- MODO MIEMBRO (DICTAR CÓDIGO) ---
@@ -118,30 +115,79 @@ export function initVoiceCommands(sendToParent) {
 
         // --- MODO INVITADO ---
         if (appState.action === "OPEN_GUEST_ORDER") {
+            console.log("entra");
             const categorias = await obtenerCategorias();
+
             console.log(categorias);
 
-            const categoriasCode = categorias.map(cat => cat.NOMBRE.toLowerCase());
-            console.log(categoriasCode);
-            if (categoriasCode.some(cmd => transcript.includes(cmd))) {
-                // Extraer código de voz
-                const cat = transcript
+            // Buscar si el transcript contiene alguna categoría
+            const match = categorias.find(cat =>
+                transcript.toLowerCase().includes(cat.NOMBRE.toLowerCase())
+            );
+
+            if (match) {
+                // Extraer nombre limpio desde transcript
+                const catNombre = transcript
                     .replace(/a\s+entrar a|ve a|quiero ver|ver/g, "")
                     .trim();
 
-                if (cat.length > 0) {
-                    speak(`Vamos a: ${cat}`);
+                if (catNombre.length > 0) {
+                    speak(`Okay`);
 
+                    appState.actualCategory = match.ID_CATEGORIA;
+                    appState.action = "OPEN_CATEGORY";
+                    console.log(appState.action);
+
+                    // Aquí devolvemos también el ID
                     sendToParent({
                         type: "VOICE_ACTION",
                         action: "OPEN_CATEGORY",
-                        code: cat,
+                        code: catNombre,
+                        id: match.ID_CATEGORIA,
                     });
+
+                    speak("Dime el nombre de un producto, lo añadiré por ti al carrito");
+
+                }
+            }
+        }
+
+
+        // AGREGAR PRODUCTOS 
+        if (appState.action === "OPEN_CATEGORY") {
+
+            const productos = await obtenerProductosPorCategoria(appState.actualCategory);
+            console.log(productos);
+
+            // Buscar si el transcript contiene alguna categoría
+            const match = productos.find(p =>
+                transcript.toLowerCase().includes(p.NOMBRE.toLowerCase())
+            );
+
+            if (match) {
+                // Extraer nombre limpio desde transcript
+                const pNombre = transcript
+                    .replace(/quiero\s+agrega|un|pon|ponme|añade|agregame|inserta/g, "")
+                    .trim();
+
+                if (pNombre.length > 0) {
+                    speak(`Te agrego un: ${pNombre}`);
+
+                    // Aquí devolvemos también el ID
+                    sendToParent({
+                        type: "VOICE_ACTION",
+                        action: "ADDED_PRODUCT",
+                        code: pNombre,
+                        id: match.ID_PRODUCTO,
+                    });
+
+                    speak("¿Quieres algo más?");
 
                     return;
                 }
             }
         }
+
 
     };
 }

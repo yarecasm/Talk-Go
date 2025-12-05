@@ -13,6 +13,7 @@ async function OrderWindow() {
   } catch (err) {
     console.error("Error creando usuario invitado:", err);
   }
+  return;
 }
 
 // Navegación entre pantallas

@@ -9,51 +9,34 @@
 </head>
 
 <body>
-  <!-- Categories 1 -->
-  <div class="categories">
-    <div class="grid">
-      <p class="hey-what-s-up">
-        <span class="text-wrapper">Hey,<br /></span> <span class="span">what’s up?</span>
-      </p>
-      <!-- Bagels -->
-      <button class="rectangle bagels" onclick="BagelsWindow()">
-        <img class="image-bagels" src="../img/Categorias/bagels.png" />
-        <div class="text">Bagels</div>
-      </button>
-
-      <!-- Drinks  -->
-      <button class="rectangle drinks" onclick="DrinksWindow()">
-        <img class="image-drinks" src="../img/Categorias/drinks.png" />
-        <div class="text">Drinks</div>
-      </button>
-
-      <!-- Snacks -->
-      <button class="rectangle snacks" onclick="SnacksWindow()">
-        <img class="image-snacks" src="../img/Categorias/snacks.png" />
-        <div class="text">Snacks</div>
-      </button>
-
-      <!-- Combos -->
-      <button class="rectangle combos" onclick="CombosWindow()">
-        <img class="image-combos" src="../img/Categorias/combos.png" />
-        <div class="text">Combos</div>
-      </button>
-    </div>
-    <!-- Asistente virtual -->
-    <button class="button" onclick="AsistenteVirtual()">
-      <img class="asistente-virtual" src="../img/asistente-virtual.png" />
-    </button>
-
-    <!-- Logo -->
-    <img class="logo" src="../img/logo.png" />
-
+  <div class="header">
     <!-- Back -->
     <button class="button" onclick="StartWindow()">
-      <img class="corner-down-left" src="../img/back.png" alt="Back" />
+      <img class="header-img" src="../img/back.png" alt="Back" />
+    </button>
+
+    <!-- Asistente virtual -->
+    <button class="button" onclick="AsistenteVirtual()">
+      <img class="header-img" src="../img/asistente-virtual.png" />
     </button>
   </div>
+
+  <div class="logo-div">
+    <!-- Logo -->
+    <img class="logo" src="../img/logo.png" />
+  </div>
+
+  <p class="slogan">
+    <span class="text-wrapper">Hey,<br /></span>
+    <span class="span">what’s up?</span>
+  </p>
+
+  <div id="categories-grid" class="categories-grid"></div>
+
   <iframe id="voice-frame" src="../../voice-frame.html" style="display:none;"></iframe>
+
+  <script type="module" src="script.js"></script>
+
 </body>
-<script src="script.js"></script>
 
 </html>

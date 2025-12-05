@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css" />
   <!-- <link rel="stylesheet" href="globals.css" /> -->
-  <title>Drinks Ordering</title>
+  <title>Menú</title>
 </head>
+
 <body>
   <div class="main-container">
 
@@ -14,10 +16,10 @@
     <div class="menu-column">
 
       <!-- Botón de regresar como imagen -->
-      <button class="button">
-        <img class="backButton" src="../img/back.png" alt="Back"/>
+      <button class="button" onclick="back()">
+        <img class="backButton" src="../img/back.png" alt="Back" />
       </button>
-      
+
       <!-- Botón de asistente virtual -->
       <button class="button">
         <img class="virtual-assistant" src="../img/asistente-virtual.png" alt="Assistant" />
@@ -26,14 +28,10 @@
       <img src="../img/logo.png" alt="Brew & Bagel Logo" class="logo">
 
       <!-- Navegación de categorías -->
-      <nav class="category-nav">
-        <button class="category-button bagelsButton">Bagels</button>
-        <button class="category-button active">Drinks</button>
-        <button class="category-button snacksButton">Snacks</button>
-      </nav>
+      <nav class="category-nav" id="category-nav"></nav>
 
       <!-- Galería de productos -->
-      <div class="product-gallery"> </div>
+      <div class="product-gallery"></div>
     </div>
 
     <!-- Columna 2: Resumen de orden -->
@@ -45,8 +43,10 @@
       </div>
       <button class="order-button">ORDER</button>
     </div>
+    <iframe id="voice-frame" src="../../voice-frame.html" style="display:none;"></iframe>
 
   </div>
   <script type="module" src="script.js"></script>
 </body>
+
 </html>

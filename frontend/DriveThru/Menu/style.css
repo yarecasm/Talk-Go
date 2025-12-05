@@ -69,8 +69,8 @@ body {
   position: absolute;
   top: 40px;
   right: 40px;
-  width: 50px; 
-  height: auto; 
+  width: 50px;
+  height: auto;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -87,10 +87,12 @@ body {
   display: inline-block;
   transition: transform 0.3s ease, filter 0.3s ease;
 }
+
 .button img {
   display: block;
   transition: transform 0.3s ease, filter 0.3s ease;
 }
+
 .button:hover img {
   transform: scale(1.1);
   filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.3)) brightness(1.1);
@@ -121,19 +123,22 @@ body {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-auto-rows: auto;
-  gap: 20px;
-  width: 100%;
-  overflow-y: scroll;         /* permite el scroll */
-  scrollbar-width: none;      /* Firefox */
-  -ms-overflow-style: none;   /* Internet Explorer 10+ */
+  gap: 30px;
+  width: 90%;
+  overflow-y: scroll;
+  /* permite el scroll */
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* Internet Explorer 10+ */
 
 }
 
-.product-img{
+.product-img {
   max-width: 80%;
 }
 
-.div-img{
+.div-img {
   width: 100%;
 
   display: flex;
@@ -151,7 +156,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s;
 }
 
@@ -206,12 +211,17 @@ body {
 #order-items {
   display: flex;
   flex-direction: column;
-  gap: 0; /* sin espacio entre items, la línea separa visualmente */
+  gap: 0;
+  /* sin espacio entre items, la línea separa visualmente */
   width: 100%;
-  height: max-content; /* o el tamaño que se vea bien en tu diseño */
-  overflow-y: scroll;         /* permite el scroll */
-  scrollbar-width: none;      /* Firefox */
-  -ms-overflow-style: none;   /* Internet Explorer 10+ */
+  height: max-content;
+  /* o el tamaño que se vea bien en tu diseño */
+  overflow-y: scroll;
+  /* permite el scroll */
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* Internet Explorer 10+ */
 }
 
 .order-item {
@@ -219,7 +229,7 @@ body {
   flex-direction: column;
   align-items: center;
   padding: 15px 0;
-  border-bottom: 1px solid #ccc; 
+  border-bottom: 1px solid #ccc;
 }
 
 .order-item img {
@@ -230,7 +240,8 @@ body {
 }
 
 .order-item:last-child {
-  border-bottom: none; /* ← evita línea extra al final */
+  border-bottom: none;
+  /* ← evita línea extra al final */
 }
 
 .order-info {
@@ -291,6 +302,7 @@ body {
 
 
 @media (max-width: 768px) {
+
   .menu-column,
   .order-column {
     width: 50%;

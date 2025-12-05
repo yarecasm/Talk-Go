@@ -5,58 +5,76 @@
 body {
   background-color: #f6f3ed;
   margin: 0;
-}
-
-.categories {
-  background-color: #f6f3ed;
-  overflow: auto;
-  width: 100%;
-  min-width: 800px;
-  min-height: 1280px;
-  position: relative;
-  height: 100%;
+  padding: 70px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 30px;
 }
 
-/* Texto */
-.categories .hey-what-s-up {
-  position: absolute;
-  top: 20%;
-  left: 15%;
-  transform: none;
+.header {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  button {
+    width: 7vh;
+    height: 7vh;
+  }
+}
+
+.header-img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.slogan {
+  width: 75%;
   font-family: "Afacad", Helvetica;
   font-weight: 400;
   color: #214ea0;
   font-size: 75px;
   letter-spacing: 0;
   line-height: 58.5px;
-}
-.categories .text-wrapper {
-  font-weight: 700;
-}
-.categories .span {
-  font-family: "Afacad", Helvetica;
-  font-weight: 400; 
+  transform: translateY(-50px);
+
 }
 
-/*texto*/
-.categories .text {
-  position: relative;
+.text-wrapper {
+  font-weight: 700;
+}
+
+.span {
   font-family: "Afacad", Helvetica;
   font-weight: 400;
-  color: #000000;
-  font-size: 32px;
-  text-align: center;
-  white-space: nowrap;
+}
+
+.categories-grid {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  font-family: "Afacad", Helvetica;
+  width: 90%;
+  height: 100%;
+  margin: 0 auto;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  font-size: 75px;
+  gap: 30px;
 }
 
 /*Rectangulos general*/
-.categories .rectangle {
+.rectangle {
   background-color: #ffffff;
   border: none;
   border-radius: 35px;
-  width: 33%;
+  width: 450px;
+  height: 450px;
   aspect-ratio: 1 / 1;
   display: flex;
   flex-direction: column;
@@ -64,114 +82,38 @@ body {
   align-items: center;
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: "Afacad", Helvetica;
+  font-size: 35px;
+  font-weight: 400;
 }
-.categories .rectangle:focus {
+
+.rectangle:focus {
   outline: none;
   box-shadow: 0 0 0 3px rgba(251, 251, 252, 0.7);
 }
-.categories .rectangle:hover {
+
+.rectangle:hover {
   transform: scale(1.05);
   filter: brightness(1.05);
   box-shadow: 0 8px 20px rgba(255, 255, 255, 0.6);
 }
 
 
-/*rectangulo bagels*/
-.categories .rectangle.bagels {
-  top: 40%;
-  left: 15%;    
-}
-/*imagen bagels*/
-.categories .image-bagels {
-  width: 80%;
-  height: 65%;
-  aspect-ratio: 1;
-  object-fit: cover;
-}
-
-/*rectangulo snacks*/
-.categories .rectangle.snacks {
-  top: 65%;
-  left: 15%;
-}
-/* imagen snacks*/
-.categories .image-snacks {
-  position: relative;
-  width: 70%;
-  height: 65%;
-  aspect-ratio: 1;
-  object-fit: cover;
-}
-
-/*combos*/
-.categories .rectangle.combos {
-  top: 65%;
-  left: 52%;
-}
-/*combos*/
-.categories .image-combos {
-  width: 60%;
-  height: 65%;
-  aspect-ratio: 1;
-  object-fit: cover;
-  position: relative;
-}
-
-/*drinks*/
-.categories .rectangle.drinks {
-  top: 40%;
-  left: 52%;
-}
-/*drinks*/
-.categories .image-drinks {
-  width: 70%;
-  height: 68%;
-  position: relative;
-  transform: none;
-  aspect-ratio: 1;
-  text-align: center;
-  object-fit: cover;
-  top: -8%;
-}
-
-/* bloque principal asistente virtual*/
-.categories .asistente-virtual {
-  position: absolute ;
-  top: 3%;
-  left: 87%;
-  height: 6%;
-}
-
 /*logo*/
-.categories .logo {
-  top: 7%;
-  left: 13%;
-  width: 117px;
-  height: 131px;
-  aspect-ratio: 0.89;
-  position: absolute;
+.logo-div {
+  width: 90%;
+  padding: 0%;
+  justify-content: flex-start;
+}
+
+.logo {
+  width: 150px;
+  height: auto;
   transform: none;
+  padding: 0%;
 }
 
-/*back*/
-.categories .corner-down-left {
-  position: absolute;
-  top: 3%;
-  left: 5%;
-  width: 6%;
-  aspect-ratio: 1;
-}
-
-.categories .grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
-  margin-top: 55%;
-  margin-bottom: 25%;
-
-}
 
 .button {
   background: transparent;
@@ -182,34 +124,25 @@ body {
   display: inline-block;
   transition: transform 0.3s ease, filter 0.3s ease;
 }
-.button img {
-  display: block;
-  transition: transform 0.3s ease, filter 0.3s ease;
+
+.image {
+  max-width: 350px;
 }
+
+
 .button:hover img {
   transform: scale(1.1);
   filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.3)) brightness(1.1);
 }
 
 
-@media (max-width: 768px) {
-  .hey-what-s-up {
-    font-size: 40px;
-    top: 10%;
-    left: 5%;
+@media (min-width: 1080px) and (orientation: landscape) {
+  .rectangle {
+    max-width: 350px;
+    max-height: 350px;
   }
 
-  .rectangle-bagels,
-  .rectangle-snacks,
-  .rectangle-combos,
-  .rectangle-drinks {
-    width: 100%;
-    position: static;
-    margin-bottom: 2rem;
-  }
-
-  .categories {
-    flex-direction: column;
-    align-items: center;
+  .image {
+    max-width: 250px;
   }
 }
