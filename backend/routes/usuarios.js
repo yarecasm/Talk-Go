@@ -6,25 +6,24 @@ const router = express.Router();
 // Crear usuario invitado
 router.post("/guest", (req, res) => {
   const correoFake = `guest_${Date.now()}@invitado.com`;
-
   const sql = "INSERT INTO usuarios (NOMBRE, CORREO, PASSWORD, TIPO_USUARIO, PUNTOS_ACUMULADOS) VALUES (?, ?, ?, ?, ?)";
 
-  db.query(sql, ["Invitado", correoFake, "", "INVITADO", 0], (err, result) => {
-    if (err) {
-      console.error(err);
-      return res.status(500).json({ error: "Error creando usuario invitado" });
-    }
-
-    res.json({
-      ID_USUARIO: result.insertId,
-      NOMBRE: "Invitado",
-      TIPO_USUARIO: "INVITADO"
-    });
+  db.query(sql, ["Invitado", correoFake, "", "cliente", 0], (err, result) => {
+  if (err) {
+    console.error(err);
+    return res.status(500).json({ error: "Error creando usuario invitado" });
+  }
+  console.log("Usuario invitado creado con ID:", result.insertId);
+  res.json({
+    ID_USUARIO: result.insertId,
+    NOMBRE: "Invitado",
+    TIPO_USUARIO: "INVITADO"
   });
+});
 });
 
 
-// --- POST para registrar usuario
+// --- POST para registrar usuario ????
 router.post("/", (req, res) => {
     const { NOMBRE, CORREO, PASSWORD, TIPO_USUARIO } = req.body;
 
@@ -56,6 +55,71 @@ router.post("/", (req, res) => {
         });
     });
 });
+
+// POST registrar usuario con ID aleatorio único
+router.post("/registro", (req, res) => {
+  const { NOMBRE, CORREO, PASSWORD } = req.body;
+
+  if (!NOMBRE || !CORREO || !PASSWORD) {
+    return res.status(400).json({ error: "Faltan datos" });
+  }
+
+  // Función para generar ID único (con callback)
+  function generarIdUnico(callback) {
+    const idUsuario = Math.floor(1000 + Math.random() * 9000);
+    db.query("SELECT ID_USUARIO FROM usuarios WHERE ID_USUARIO = ?", [idUsuario], (err, rows) => {
+      if (err) return callback(err);
+      if (rows.length > 0) {
+        // Si ya existe, llamar de nuevo (recursión)
+        return generarIdUnico(callback);
+      } else {
+        callback(null, idUsuario);
+      }
+    });
+  }
+
+  generarIdUnico((err, idUsuario) => {
+    if (err) {
+      console.error(err);
+      return res.status(500).json({ error: "Error al generar ID" });
+    }
+
+    const sql = `
+      INSERT INTO usuarios (ID_USUARIO, NOMBRE, CORREO, PASSWORD, TIPO_USUARIO, PUNTOS_ACUMULADOS)
+      VALUES (?, ?, ?, ?, 'cliente', 0)
+    `;
+
+    db.query(sql, [idUsuario, NOMBRE, CORREO, PASSWORD], (err2) => {
+      if (err2) {
+        console.error(err2);
+        return res.status(500).json({ error: "Error al registrar usuario" });
+      }
+
+      res.json({
+        mensaje: "Usuario cliente registrado",
+        ID_USUARIO: idUsuario,
+        NOMBRE,
+        CORREO,
+        TIPO_USUARIO: "cliente",
+        PUNTOS_ACUMULADOS: 0
+      });
+    });
+  });
+});
+
+// GET /usuarios/:id
+router.get("/:id", (req, res) => {
+  const sql = "SELECT * FROM usuarios WHERE ID_USUARIO = ?";
+  db.query(sql, [req.params.id], (err, results) => {
+    if (err) return res.status(500).json({ error: "DB error" });
+
+    if (results.length === 0)
+      return res.status(404).json({ error: "Usuario no encontrado" });
+
+    res.json(results[0]);
+  });
+});
+
 
 // --- POST para iniciar sesión
 router.post("/login", (req, res) => {
