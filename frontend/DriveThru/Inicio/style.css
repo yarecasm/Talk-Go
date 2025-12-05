@@ -192,3 +192,23 @@ body {
     background-color: white;
   }
 }
+
+.input-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.input-wrapper input {
+  padding-right: 30px; /* espacio para la palomita */
+}
+
+.check-icon {
+  position: absolute;
+  right: 20px;   /* ajusta según tu diseño */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 35px;
+  height: 35px;
+  display: none; /* oculta por defecto */
+  cursor: pointer;
+}

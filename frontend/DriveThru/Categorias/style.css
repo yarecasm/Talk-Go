@@ -22,8 +22,8 @@ body {
 /* Texto */
 .categories .hey-what-s-up {
   position: absolute;
-  top: 20%;
-  left: 15%;
+  /* top: 20%;
+  left: 15%; */
   transform: none;
   font-family: "Afacad", Helvetica;
   font-weight: 400;
@@ -79,8 +79,8 @@ body {
 
 /*rectangulo bagels*/
 .categories .rectangle.bagels {
-  top: 40%;
-  left: 15%;    
+  /*top: 40%;
+  left: 15%;*/    
 }
 /*imagen bagels*/
 .categories .image-bagels {
@@ -92,8 +92,8 @@ body {
 
 /*rectangulo snacks*/
 .categories .rectangle.snacks {
-  top: 65%;
-  left: 15%;
+  /*top: 65%;
+  left: 15%;*/
 }
 /* imagen snacks*/
 .categories .image-snacks {
@@ -105,10 +105,10 @@ body {
 }
 
 /*combos*/
-.categories .rectangle.combos {
+/*.categories .rectangle.combos {
   top: 65%;
   left: 52%;
-}
+}*/
 /*combos*/
 .categories .image-combos {
   width: 60%;
@@ -119,10 +119,10 @@ body {
 }
 
 /*drinks*/
-.categories .rectangle.drinks {
+/*.categories .rectangle.drinks {
   top: 40%;
   left: 52%;
-}
+}*/
 /*drinks*/
 .categories .image-drinks {
   width: 70%;
@@ -212,4 +212,33 @@ body {
     flex-direction: column;
     align-items: center;
   }
+}
+
+.rewards-section {
+  margin-top: 150px;
+  margin-right: -30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  gap: 8px;
+}
+
+.rewards-text {
+  font-family: 'Afacad', sans-serif;
+  font-weight: 500;       /* peso 500 */
+  font-size: 30px;        /* tamaño 30px */
+  line-height: 0.78;      /* 78% */
+  letter-spacing: 0;      /* 0% */
+  text-align: center;
+}
+
+.rewards-arrow {
+  width: 28px;
+  height: auto;
+}
+
+
+.user-info {
+  margin-top: -225px;
 }

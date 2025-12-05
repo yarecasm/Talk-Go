@@ -10,9 +10,20 @@
       <!-- Categories 1 --> 
       <div class="categories">
         <div class="grid">
-        <p class="hey-what-s-up">
-          <span class="text-wrapper">Hey,<br /></span> <span class="span">what’s up?</span>
-        </p>
+
+          <div class="user-info">
+            <p class="hey-what-s-up">
+              <span class="text-wrapper" id="userGreeting"></span> 
+              <span class="span">what’s up?</span>
+            </p>
+
+            <!-- Solo este bloque para BREW & BAGEL REWARDS -->
+            <div id="rewards-container" class="rewards-section">
+              <span class="rewards-text" id="userReward"></span>
+              <img src="" id="rewardArrow" class="rewards-arrow" alt="">
+            </div>
+          </div>
+
           <!-- Bagels -->
           <button class="rectangle bagels" onclick="BagelsWindow()">
             <img class="image-bagels" src="../img/Categorias/bagels.png" />
