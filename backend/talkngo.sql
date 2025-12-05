@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-12-2025 a las 21:13:00
--- Versión del servidor: 10.4.28-MariaDB
--- Versión de PHP: 8.0.28
+-- Tiempo de generación: 06-12-2025 a las 00:31:04
+-- Versión del servidor: 10.4.32-MariaDB
+-- Versión de PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,18 +29,19 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `categoria` (
   `ID_CATEGORIA` int(11) NOT NULL,
-  `NOMBRE` varchar(100) NOT NULL
+  `NOMBRE` varchar(100) NOT NULL,
+  `FOTO` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `categoria`
 --
 
-INSERT INTO `categoria` (`ID_CATEGORIA`, `NOMBRE`) VALUES
-(1, 'Bagels'),
-(2, 'Drinks'),
-(3, 'Snacks'),
-(4, 'Combos');
+INSERT INTO `categoria` (`ID_CATEGORIA`, `NOMBRE`, `FOTO`) VALUES
+(1, 'Bagels', 'IMGCATEGORIA1.png'),
+(2, 'Drinks', 'IMGCATEGORIA2.png'),
+(3, 'Snacks', 'IMGCATEGORIA3.png'),
+(4, 'Combos', 'IMGCATEGORIA4.png');
 
 -- --------------------------------------------------------
 
@@ -146,7 +147,37 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`ID_USUARIO`, `NOMBRE`, `CORREO`, `PASSWORD`, `TIPO_USUARIO`, `PUNTOS_ACUMULADOS`) VALUES
-(1, 'Vanessa Aguayo', 'vanessa@correo.com', '12345', 'cliente', 0);
+(1, 'Vanessa Aguayo', 'vanessa@correo.com', '12345', 'cliente', 0),
+(2, 'Invitado', 'guest_1764892541522@invitado.com', '', '', 0),
+(3, 'Invitado', 'guest_1764893532103@invitado.com', '', '', 0),
+(4, 'Invitado', 'guest_1764902272969@invitado.com', '', '', 0),
+(5, 'Invitado', 'guest_1764902463507@invitado.com', '', '', 0),
+(6, 'Invitado', 'guest_1764903632976@invitado.com', '', '', 0),
+(7, 'Invitado', 'guest_1764903673898@invitado.com', '', '', 0),
+(8, 'Invitado', 'guest_1764903762019@invitado.com', '', '', 0),
+(9, 'Invitado', 'guest_1764903857541@invitado.com', '', '', 0),
+(10, 'Invitado', 'guest_1764903913021@invitado.com', '', '', 0),
+(11, 'Invitado', 'guest_1764903973533@invitado.com', '', '', 0),
+(12, 'Invitado', 'guest_1764904029589@invitado.com', '', '', 0),
+(13, 'Invitado', 'guest_1764904227955@invitado.com', '', '', 0),
+(14, 'Invitado', 'guest_1764904258438@invitado.com', '', '', 0),
+(15, 'Invitado', 'guest_1764904338899@invitado.com', '', '', 0),
+(16, 'Invitado', 'guest_1764904444877@invitado.com', '', '', 0),
+(17, 'Invitado', 'guest_1764904541823@invitado.com', '', '', 0),
+(18, 'Invitado', 'guest_1764904787540@invitado.com', '', '', 0),
+(19, 'Invitado', 'guest_1764904925878@invitado.com', '', '', 0),
+(20, 'Invitado', 'guest_1764905114824@invitado.com', '', '', 0),
+(21, 'Invitado', 'guest_1764905253721@invitado.com', '', '', 0),
+(22, 'Invitado', 'guest_1764905431246@invitado.com', '', '', 0),
+(23, 'Invitado', 'guest_1764905462897@invitado.com', '', '', 0),
+(24, 'Invitado', 'guest_1764905493479@invitado.com', '', '', 0),
+(25, 'Invitado', 'guest_1764905529281@invitado.com', '', '', 0),
+(26, 'Invitado', 'guest_1764905844914@invitado.com', '', '', 0),
+(27, 'Invitado', 'guest_1764905859571@invitado.com', '', '', 0),
+(28, 'Invitado', 'guest_1764905902421@invitado.com', '', '', 0),
+(29, 'Invitado', 'guest_1764906219768@invitado.com', '', '', 0),
+(30, 'Invitado', 'guest_1764906240188@invitado.com', '', '', 0),
+(31, 'Invitado', 'guest_1764976926390@invitado.com', '', '', 0);
 
 --
 -- Índices para tablas volcadas
@@ -225,7 +256,7 @@ ALTER TABLE `recompensas`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `ID_USUARIO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ID_USUARIO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- Restricciones para tablas volcadas
