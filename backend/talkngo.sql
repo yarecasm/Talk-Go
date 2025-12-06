@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-12-2025 a las 21:13:00
--- Versión del servidor: 10.4.28-MariaDB
--- Versión de PHP: 8.0.28
+-- Tiempo de generación: 06-12-2025 a las 02:17:22
+-- Versión del servidor: 10.4.32-MariaDB
+-- Versión de PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,18 +29,19 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `categoria` (
   `ID_CATEGORIA` int(11) NOT NULL,
-  `NOMBRE` varchar(100) NOT NULL
+  `NOMBRE` varchar(100) NOT NULL,
+  `FOTO` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `categoria`
 --
 
-INSERT INTO `categoria` (`ID_CATEGORIA`, `NOMBRE`) VALUES
-(1, 'Bagels'),
-(2, 'Drinks'),
-(3, 'Snacks'),
-(4, 'Combos');
+INSERT INTO `categoria` (`ID_CATEGORIA`, `NOMBRE`, `FOTO`) VALUES
+(1, 'Bagels', 'IMGCATEGORIA1.png'),
+(2, 'Drinks', 'IMGCATEGORIA2.png'),
+(3, 'Snacks', 'IMGCATEGORIA3.png'),
+(4, 'Combos', 'IMGCATEGORIA4.png');
 
 -- --------------------------------------------------------
 
@@ -56,6 +57,19 @@ CREATE TABLE `detalle_orden` (
   `SUBTOTAL` decimal(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `detalle_orden`
+--
+
+INSERT INTO `detalle_orden` (`ID_ORDEN`, `ID_PRODUCTO`, `PRECIO_UNITARIO`, `CANTIDAD`, `SUBTOTAL`) VALUES
+(1, 2, 7.00, 2, 14.00),
+(1, 3, 10.00, 1, 10.00),
+(1, 19, 5.00, 3, 15.00),
+(2, 1, 8.00, 1, 8.00),
+(2, 8, 3.00, 2, 6.00),
+(2, 18, 5.00, 2, 10.00),
+(2, 19, 5.00, 1, 5.00);
+
 -- --------------------------------------------------------
 
 --
@@ -70,6 +84,14 @@ CREATE TABLE `ordenes` (
   `ESTADO` enum('activa','terminada') NOT NULL,
   `ID_RECOMPENSA` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `ordenes`
+--
+
+INSERT INTO `ordenes` (`ID_ORDEN`, `ID_USUARIO`, `FECHA`, `TOTAL`, `ESTADO`, `ID_RECOMPENSA`) VALUES
+(1, 1698, '2025-12-06', 39.00, 'activa', NULL),
+(2, 1699, '2025-12-06', 29.00, 'activa', NULL);
 
 -- --------------------------------------------------------
 
@@ -146,7 +168,10 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`ID_USUARIO`, `NOMBRE`, `CORREO`, `PASSWORD`, `TIPO_USUARIO`, `PUNTOS_ACUMULADOS`) VALUES
-(1, 'Vanessa Aguayo', 'vanessa@correo.com', '12345', 'cliente', 0);
+(1, 'Vanessa Aguayo', 'vanessa@correo.com', '12345', 'cliente', 0),
+(2, 'Invitado', 'guest_1764892541522@invitado.com', '', '', 0),
+(1698, 'fer', 'mafer@gmail.com', '123', 'cliente', 0),
+(1699, 'Invitado', 'guest_1764983770068@invitado.com', '', 'cliente', 0);
 
 --
 -- Índices para tablas volcadas
@@ -207,7 +232,7 @@ ALTER TABLE `categoria`
 -- AUTO_INCREMENT de la tabla `ordenes`
 --
 ALTER TABLE `ordenes`
-  MODIFY `ID_ORDEN` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_ORDEN` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
@@ -225,7 +250,7 @@ ALTER TABLE `recompensas`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `ID_USUARIO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ID_USUARIO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1700;
 
 --
 -- Restricciones para tablas volcadas
