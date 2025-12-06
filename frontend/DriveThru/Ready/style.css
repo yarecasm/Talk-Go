@@ -174,3 +174,8 @@ body, html {
     margin-top: 12px;
   }
 }
+
+/* Cuando no hay rewards, bajamos para centrarlo */
+.shift-down {
+  margin-top: 300px; /* ajusta si quieres más o menos */
+}
