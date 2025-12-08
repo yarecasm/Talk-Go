@@ -19,7 +19,7 @@ router.post("/", (req, res) => {
         } = req.body;
 
         // Validación básica
-        if (!NOMBRE || !DESCRIPCION || !TIPO || !PUNTOS || !VALOR_DESCUENTO || (TIPO != "porcentaje" && TIPO != "gananica" && !ID_PRODUCTO_ASOCIADO)) {
+        if (!NOMBRE || !DESCRIPCION || !TIPO || PUNTOS===undefined || VALOR_DESCUENTO===undefined) {
             return res.status(400).json({ error: "Faltan datos obligatorios" });
         }
 
@@ -27,6 +27,11 @@ router.post("/", (req, res) => {
 
         if (!tiposValidos.includes(TIPO)) {
             return res.status(400).json({ error: "El tipo de recompensa no es válido" });
+        }
+
+         // Solo requiere producto asociado para 2x1, 3x2 y gratis
+        if ((TIPO === "2x1" || TIPO === "3x2" || TIPO === "gratis") && !ID_PRODUCTO_ASOCIADO) {
+            return res.status(400).json({ error: "Este tipo de recompensa requiere un producto asociado" });
         }
 
         const estadoFinal = ESTADO ?? 1;
@@ -67,7 +72,7 @@ router.post("/", (req, res) => {
    GET Obtener todas las recompensas excepto las de puntos por compra
 ============================================================ */
 router.get("/", (req, res) => {
-    const sql = "SELECT * FROM recompensas WHERE recompensa != 'ganancia'";
+    const sql = "SELECT * FROM recompensas WHERE TIPO != 'ganancia'";
 
     db.query(sql, (err, rows) => {
         if (err) return res.status(500).json({ error: err });

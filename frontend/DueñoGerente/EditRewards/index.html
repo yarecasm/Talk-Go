@@ -34,6 +34,7 @@
                                 <option>FREE</option>
                                 <option>Discount</option>
                                 <option>2X1</option>
+                                <option>3X2</option>
                             </select>
                         </div>
 
@@ -46,21 +47,29 @@
 
                 <div class="form-row">
                     <div class="form-group">
-                        <label class="form-label">Short Identifier</label>
-                        <input type="text" class="form-input" placeholder="Short identifier from docume...">
+                        <label class="form-label">Associated product</label>
+                        <select class="form-select">
+                             <!-- Los productos se cargarán dinámicamente desde el backend -->
+                        </select>
                     </div>
 
                     <div class="form-group">
-                        <label class="form-label">Associated product</label>
-                        <select class="form-select">
-                            <option>Select</option>
-                            <option>Bacon Bagel</option>
-                            <option>Salmon Bagel</option>
-                            <option>Morning Bagel</option>
-                        </select>
+                        <label class="form-label">Status</label>
+                        <div style="display: flex; align-items: center; gap: 10px; margin-top: 8px;">
+                            <label class="switch">
+                                <input type="checkbox" id="estadoReward" checked>
+                                <span class="slider"></span>
+                            </label>
+                            <span id="estadoLabel" style="font-size: 14px; color: #4CAF50;">Active</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <button type="button" class="delete-button" id="deleteButton" onclick="eliminarRecompensa()">Delete</button>
                     </div>
                 </div>
 
+                
                 <button type="submit" class="save-button">Save</button>
             </form>
         </div>
@@ -80,39 +89,7 @@
 
         <!-- Rewards Grid -->
         <div class="rewards-grid">
-            <!-- 2X1 Bacon Bagel -->
-            <div class="reward-card">
-                <button class="edit-btn">
-                    <img src="../img/edit.svg" alt="Edit">
-                </button>
-                <div class="reward-main-text">2X1<br><span style="font-size: 38px;">Bacon Bagel</span></div>
-            </div>
-
-            <!-- FREE Iced Latte -->
-            <div class="reward-card">
-                <button class="edit-btn">
-                    <img src="../img/edit.svg" alt="Edit">
-                </button>
-                <div class="reward-main-text">FREE<br><span style="font-size: 38px;">Iced Latte</span></div>
-                <div class="reward-description">With the purchase<br>of any bagel</div>
-            </div>
-
-            <!-- FREE Bigñets -->
-            <div class="reward-card">
-                <button class="edit-btn">
-                    <img src="../img/edit.svg"alt="Edit">
-                </button>
-                <div class="reward-main-text">FREE<br><span style="font-size: 38px;">Bigñets</span></div>
-            </div>
-
-            <!-- 50% discount -->
-            <div class="reward-card">
-                <button class="edit-btn">
-                    <img src="../img/edit.svg" alt="Edit">
-                </button>
-                <div class="reward-main-text">50%<br><span style="font-size: 38px;">discount</span></div>
-                <div class="reward-description">Any combo</div>
-            </div>
+           <!-- Las tarjetas se cargarán dinámicamente desde el backend -->
 
             <!-- Add Reward -->
             <div class="add-reward-card" onclick="openModal()">
@@ -120,23 +97,6 @@
             </div>
         </div>
     </div>
-
-      <script>
-        function openModal() {
-            document.getElementById('newValeModal').classList.add('active');
-        }
-
-        function closeModal() {
-            document.getElementById('newValeModal').classList.remove('active');
-        }
-
-        // Close modal when clicking outside
-        document.getElementById('newValeModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeModal();
-            }
-        });
-    </script>
 
 </body>
 <script src="script.js"></script>

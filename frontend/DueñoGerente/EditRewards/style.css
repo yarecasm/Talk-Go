@@ -118,7 +118,7 @@
             font-family: 'Afacad-SemiBold', Helvetica, sans-serif;
             font-weight: 600;
             color: #665d4b;
-            font-size: 80px;
+            font-size: 50px;
             line-height: 0.5;
             margin-bottom: 30px;
         }
@@ -126,7 +126,7 @@
         .reward-description {
             font-weight: 500;
             color: #665d4b;
-            font-size: 30px;
+            font-size: 20px;
         }
 
         /* Add Reward Card */
@@ -160,6 +160,25 @@
             font-size: 40px;
             color: #665d4b;
         }
+
+        .delete-button {
+    align-items: center;
+    width: 100%;
+    padding: 12px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.delete-button:hover {
+    background-color: #da190b;
+}
 
         /* Responsive */
         @media (max-width: 768px) {
@@ -315,3 +334,54 @@
         .close-modal:hover {
             color: #214ea0;
         }
+
+        /* Switch Toggle Styles */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 24px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #4CAF50;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+/* Opcional: Efecto focus */
+input:focus + .slider {
+    box-shadow: 0 0 1px #4CAF50;
+}
