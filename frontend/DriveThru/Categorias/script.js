@@ -32,10 +32,17 @@ async function cargarCategorias() {
 
 cargarCategorias();
 
+window.goToRewards = function () {
+  window.location.href = "../Rewards/index.html";
+};
+
+
+
 function openMenu() {
     window.location.href = "../Menu/index.html";
     return;
 }
+
 
 document.addEventListener("DOMContentLoaded", () => {
   const greeting = document.getElementById("userGreeting");

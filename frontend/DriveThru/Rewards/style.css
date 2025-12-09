@@ -51,6 +51,7 @@ body {
 }
 
 .logo {
+  padding-top: 80px; 
   left: 1%;
   top: 5px;
   width: 110px;
@@ -68,6 +69,7 @@ body {
 }
 
 .rewards-container {
+  padding-top: 80px; 
   width: 100vw;
   min-height: 100vh;
   padding: 24px;
@@ -85,6 +87,8 @@ body {
 }
 
 .rewards-title {
+  padding-top: 85px; 
+  padding-inline-start: 1%;
   font-size: 32px;
   color: #214ea0;
   font-weight: 600;
@@ -159,24 +163,33 @@ body {
 
 .rewards-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;                /* Más separación */
   width: 100%;
-  margin: 0 auto;
+  max-width: 500px;         /* Más ancho permitido */
+  margin: 0 auto;           /* Centrado */
+  padding-bottom: 40px;
 }
+
 
 .reward-card {
   background: #fff;
-  border-radius: 16px;
-  padding: 28px;
+  border-radius: 20px;      /* Más redondo */
+  padding: 36px 20px;       /* Más alto */
   text-align: center;
-  box-shadow: 0 2px 8px #00000011;
+  box-shadow: 0 4px 12px #00000015;  /* Más suave */
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  width: 100%;
   justify-content: center;
+
+  min-height: 160px;        /* AUMENTA tamaño de cuadro */
+}
+
+.reward-card.disabled {
+  opacity: 0.4;
+  filter: grayscale(1);
+  pointer-events: none;
 }
 
 .reward-main {
@@ -199,11 +212,13 @@ body {
   font-weight: 400;
 }
 
+
+
 /* Ajustar grid cuando hay espacio */
-@media (min-width: 650px) {
+@media (min-width: 750px) {
   .rewards-grid {
     grid-template-columns: repeat(2, 1fr);
-    max-width: 430px;
+    max-width: 630px;
     margin: auto;
   }
 }
