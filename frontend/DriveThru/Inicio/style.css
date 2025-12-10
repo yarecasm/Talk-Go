@@ -5,6 +5,12 @@ body {
   height: 100%;
 }
 
+.qr-code img {
+  width: 120px;
+  height: auto;
+  border-radius: 8px;
+}
+
 .inicio {
   width: 100%;
   height: 100%;

@@ -299,6 +299,11 @@ body {
   font-weight: 600;
   cursor: pointer;
 }
+.qr-code img {
+  width: 20px;
+  height: auto;
+  border-radius: 8px;
+}
 
 
 @media (max-width: 768px) {
