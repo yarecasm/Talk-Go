@@ -125,6 +125,24 @@ export function initVoiceCommands(sendToParent) {
                 return;
             }
 
+            if (transcript.includes("pagar") || transcript.includes("finalizar") || transcript.includes("es todo")
+                || transcript.includes("enviar") || transcript.includes("terminar")) {
+                const cart = JSON.stringify(localStorage.getItem('cart')) || {};
+
+                if (Object.keys(cart).length > 0) {
+                    speak("Okay, procesaré tu orden, pasa a recogerla.");
+                    appState.action = "FINISH_ORDER";
+                    saveAppState();
+
+                    sendToParent({
+                        type: "VOICE_ACTION",
+                        action: "FINISH_ORDER"
+                    });
+
+                    return;
+                }
+                return;
+            }
 
             // CANCELAR ORDEN
             if (transcript.includes("cancelar orden") || transcript.includes("cancela todo") || transcript.includes("borrar orden")) {
@@ -311,44 +329,44 @@ export function initVoiceCommands(sendToParent) {
             }
 
             // --- MODO INVITADO ---
-            // SE ELIGIÓ CATEGORÍA
+            // ELEGIR CATEGORÍA
             if (appState.action === "OPEN_GUEST_ORDER") {
 
                 const categorias = await obtenerCategorias();
 
-                console.log(categorias);
+                // Lista de nombres de categorías
+                const nombresCategorias = categorias.map(c => c.NOMBRE.toLowerCase());
 
-                // Buscar si el transcript contiene alguna categoría
-                const match = categorias.find(cat =>
-                    transcript.toLowerCase().includes(cat.NOMBRE.toLowerCase())
-                );
+                // Buscar coincidencia por similitud
+                const result = findSimilar(transcript.toLowerCase(), nombresCategorias, 0.6);
+                // console.log("Match de categoría:", result);
 
-                if (match) {
-                    // Extraer nombre limpio desde transcript
-                    const catNombre = transcript
-                        .replace(/a\s+entrar a|ve a|quiero ver|ver/g, "")
-                        .trim();
+                if (result) {
+                    const match = categorias.find(
+                        c => c.NOMBRE.toLowerCase() === result.match.toLowerCase()
+                    );
 
-                    if (catNombre.length > 0) {
-                        speak("Dime el nombre de un producto, lo añadiré por ti al carrito");
+                    speak(`Abriendo categoría: ${match.NOMBRE}. Dime un producto para agregar.`);
 
-                        appState.actualCategory = match.ID_CATEGORIA;
-                        appState.action = "OPEN_CATEGORY";
-                        saveAppState();
+                    // Notificar al padre
+                    sendToParent({
+                        type: "VOICE_ACTION",
+                        action: "OPEN_CATEGORY",
+                        code: match.NOMBRE,
+                        id: match.ID_CATEGORIA,
+                    });
 
-                        // Aquí devolvemos también el ID
-                        sendToParent({
-                            type: "VOICE_ACTION",
-                            action: "OPEN_CATEGORY",
-                            code: catNombre,
-                            id: match.ID_CATEGORIA,
-                        });
+                    appState.actualCategory = match.ID_CATEGORIA;
+                    appState.action = "OPEN_CATEGORY";
+                    saveAppState();
 
-                        return;
-
-                    }
+                    return;
                 }
+
+                // No hubo coincidencia
+                return;
             }
+
 
             // NAVEGACION MENU
             if (appState.action === "NAV") {
@@ -411,13 +429,14 @@ export function initVoiceCommands(sendToParent) {
 
             // AGREGAR PRODUCTOS 
             if (appState.action === "OPEN_CATEGORY") {
-                setTimeout(() => {
-                    // esperar a que hable
-                }, 5000);
+
                 const productos = await obtenerProductosPorCategoria(appState.actualCategory);
                 const nombres = productos.map(p => p.NOMBRE);
 
-                const result = findSimilar(transcript, nombres, 0.7);
+                console.log("transcription: ", transcript);
+                if (transcript == "") return;
+
+                const result = findSimilar(transcript, nombres, 0.6);
 
                 if (result) {
                     const match = productos.find(p => p.NOMBRE.toLowerCase() == result.match.toLowerCase());

@@ -23,7 +23,7 @@ export async function registrarReward(rewardData) {
    GET obtener todas las recompensas
 --------------------------------------------------------- */
 export async function obtenerRewards() {
-    const response = await fetch(`${API_URL}/rewards`, {
+    const response = await fetch(`${API_URL}/recompensas`, {
         method: "GET",
         headers: { "Content-Type": "application/json" },
     });
