@@ -286,6 +286,8 @@ export function initVoiceCommands(sendToParent) {
                             id: match.ID_CATEGORIA,
                         });
 
+                        return;
+
                         // speak("Dime el nombre de un producto, lo añadiré por ti al carrito");
 
                     }
@@ -332,7 +334,6 @@ export function initVoiceCommands(sendToParent) {
 
                         appState.actualCategory = match.ID_CATEGORIA;
                         appState.action = "OPEN_CATEGORY";
-                        console.log(appState.action);
                         saveAppState();
 
                         // Aquí devolvemos también el ID
