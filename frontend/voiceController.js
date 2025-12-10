@@ -81,6 +81,72 @@ export function initVoiceCommands(sendToParent) {
                 return;
             }
 
+            // ELIMINAR UN PRODUCTO
+            if (transcript.includes("borra") || transcript.includes("elimina") || transcript.includes("quita") || transcript.includes("quitar")
+                || transcript.includes("borrar") || transcript.includes("eliminar")) {
+                const cart = JSON.parse(localStorage.getItem('cart')) || {};
+                const numberOfKeys = Object.keys(cart).length;
+
+                console.log("Intentando borrar...");
+
+                if (numberOfKeys > 0) {
+                    console.log("Obteniendo coincidencias...");
+                    const productos = await obtenerProductosPorCategoria(appState.actualCategory);
+                    const newTranscription = transcript
+                        .replace(/\s+borrar|eliminar|borra|elimina|quitar|quita|borra un|elimina un| quita un/g, "")
+                        .trim();
+
+                    const nombres = productos.map(p => p.NOMBRE.toLowerCase());
+                    console.log(newTranscription);
+                    const result = findSimilar(newTranscription, nombres, 0.7);
+                    console.log(result);
+
+                    if (result) {
+                        const match = productos.find(p => p.NOMBRE.toLowerCase() === result.match.toLowerCase());
+
+                        speak(`Borrando un: ${match.NOMBRE}`);
+
+                        sendToParent({
+                            type: "VOICE_ACTION",
+                            action: "DELETE_PRODUCT",
+                            code: match.NOMBRE,
+                            id: match.ID_PRODUCTO,
+                        });
+
+                        speak("¿Quieres ir a otra categoría o agregar un nuevo producto?");
+                        appState.action = "WAITING-TO-NAV";
+                        saveAppState();
+
+                        return;
+                    } else {
+                        return;
+                    }
+                }
+                return;
+            }
+
+
+            // CANCELAR ORDEN
+            if (transcript.includes("cancelar orden") || transcript.includes("cancela todo") || transcript.includes("borrar orden")) {
+                speak("Tu orden será borrada");
+
+                isVoiceActive = false;
+                shouldRestartRecognition = false;
+
+                sendToParent({
+                    type: "VOICE_ACTION",
+                    action: "CANCEL_ALL"
+                });
+
+                appState = {
+                    action: null,
+                    actualCategory: null,
+                    initialVoice: true,
+                };
+                saveAppState();
+
+                return;
+            }
 
             //shouldRestartRecognition = false;
 
@@ -101,9 +167,8 @@ export function initVoiceCommands(sendToParent) {
             }
 
             const notMemberCode = [
-                "ordenar", "hacer una orden", "quiero ordenar",
                 "no iniciar", "no soy miembro", "no miembro",
-                "iniciar", "ordena", "order", "no", "invitado",
+                "iniciar", "ordena", "order", "invitado",
             ];
             if (notMemberCode.some(cmd => transcript.includes(cmd))) {
 
@@ -243,7 +308,6 @@ export function initVoiceCommands(sendToParent) {
                 }
             }
 
-
             // --- MODO INVITADO ---
             // SE ELIGIÓ CATEGORÍA
             if (appState.action === "OPEN_GUEST_ORDER") {
@@ -279,7 +343,7 @@ export function initVoiceCommands(sendToParent) {
                             id: match.ID_CATEGORIA,
                         });
 
-
+                        return;
 
                     }
                 }
@@ -287,9 +351,10 @@ export function initVoiceCommands(sendToParent) {
 
             // NAVEGACION MENU
             if (appState.action === "NAV") {
+
                 // RESPUESTA : SI QUIERO ALGO MAS 
                 if (transcript.includes("si") || transcript.includes("yes") || transcript.includes("claro") || transcript.includes("por supuesto")) {
-                    speak("¿Quieres cambiar de categoría o agregar un producto?");
+                    speak("¿Quieres ir a otra categoría o agregar un nuevo producto?");
                     appState.action = "WAITING-TO-NAV";
                     saveAppState();
 
@@ -304,22 +369,33 @@ export function initVoiceCommands(sendToParent) {
                     speak("Okay, procesaré tu orden, pasa a recogerla.");
                     appState.action = "FINISH_ORDER";
                     saveAppState();
+
+                    sendToParent({
+                        type: "VOICE_ACTION",
+                        action: "FINISH_ORDER"
+                    });
+
                     return;
                 }
 
             };
             // SELECCIONAR ENTRE CAMBIAR CATEGORÍA O AGREGAR PRODUCTO
             if (appState.action == "WAITING-TO-NAV") {
-                if (transcript.includes("cambiar") || transcript.includes("categoría") || transcript.includes("categoria")) {
+                if (transcript.includes("cambiar") || transcript.includes("cambiar de categoría") || transcript.includes("cambiar de categoria")) {
                     speak("¿Qué menú quieres ver?");
 
                     appState.action = "OPEN_GUEST_ORDER";
                     saveAppState();
 
+                    sendToParent({
+                        type: "VOICE_ACTION",
+                        action: "OPEN_GUEST_ORDER"
+                    });
+
                     return;
                 }
                 else {
-                    if (transcript.includes("producto") || transcript.includes("agregar")) {
+                    if (transcript.includes("agregar producto") || transcript.includes("agregar un producto")) {
                         speak("¿Qué te agrego?");
 
                         appState.action = "OPEN_CATEGORY";
@@ -343,7 +419,7 @@ export function initVoiceCommands(sendToParent) {
                 const result = findSimilar(transcript, nombres, 0.7);
 
                 if (result) {
-                    const match = productos.find(p => p.NOMBRE === result.match);
+                    const match = productos.find(p => p.NOMBRE.toLowerCase() == result.match.toLowerCase());
 
                     speak(`Te agrego un: ${match.NOMBRE}`);
 
@@ -357,12 +433,12 @@ export function initVoiceCommands(sendToParent) {
                     speak("¿Quieres algo más?");
                     appState.action = "NAV";
                     saveAppState();
+                    return;
                 } else {
                     speak("No te entendí, repítelo");
+                    return;
                 }
             }
-
-
 
             // PAY
             if (appState.action === "FINISH_ORDER") {

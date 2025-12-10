@@ -132,6 +132,7 @@ document.querySelector('.order-button').addEventListener('click', async () => {
     // Limpia solo después de registrar con éxito
     cart = {};
     localStorage.removeItem('cart');
+    localStorage.clear();
     updateOrderDisplay();
 
     window.location.href = '../Ready/index.html';
@@ -155,6 +156,7 @@ async function cargarCategorias() {
 
     btn.classList.add("category-button");
     btn.textContent = cat.NOMBRE;
+    btn.id = "cat-" + cat.ID_CATEGORIA;
 
     if (cat.ID_CATEGORIA == localStorage.getItem("categoriaSeleccionada")) {
       btn.classList.add("active");
@@ -213,16 +215,28 @@ async function cargarProductos() {
 cargarCategorias();
 
 // VOICE FUNCTIONS
-// ACCIONES DE VOZ
 window.addEventListener("message", (event) => {
   if (event.data.type !== "VOICE_ACTION") return;
   switch (event.data.action) {
+
+    // -- Cargar prodcutos de la categoría seleccionada --
     case "OPEN_CATEGORY":
+
       console.log(event.data);
       localStorage.setItem("categoriaSeleccionada", event.data.id);
+      document.querySelectorAll(".category-button").forEach(b => b.classList.remove("active"));
+
+      const btn = document.getElementById(`cat-${event.data.id}`);
+      if (btn) {
+        btn.classList.add("active");
+      } else {
+        console.warn(`No se encontró el botón de categoría cat-${event.data.id}. ¿Se llamó cargarCategorias()?`);
+      }
+
       cargarProductos();
       break;
 
+    // -- Agregar producto --  
     case "ADDED_PRODUCT":
       const btnProduct = document.getElementById(event.data.id);
       if (btnProduct) {
@@ -230,6 +244,27 @@ window.addEventListener("message", (event) => {
       } else {
         console.error("Producto no encontrado:", event.data.id);
       }
+      break;
+
+    // -- Borrar producto --  
+    case "DELETE_PRODUCT":
+      decreaseQuantity(event.data.id);
+      console.log("Eliminando producto con id ", event.data.id, "...");
+      break;
+
+    case "CANCEL_ALL":
+      window.location.href = '../Inicio/index.html';
+      localStorage.clear();
+      break;
+
+    case "FINISH_ORDER":
+      const btnOrdenar = document.querySelector('.order-button');
+      btnOrdenar.click();
+
+      setTimeout(() => {
+        localStorage.clear();
+        window.location.href = "../Inicio/index.html";
+      }, 5000);
       break;
 
     default:
