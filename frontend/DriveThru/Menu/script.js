@@ -1,6 +1,7 @@
 import { obtenerProductosPorCategoria, } from "../../services/productos.js";
 import { registrarOrden } from "../../services/orden.js";
 import { obtenerCategorias } from "../../services/categorias.js";
+import { obtenerProductoPorId } from "../../services/productos.js";
 
 const gallery = document.querySelector('.product-gallery');
 const orderItems = document.getElementById('order-items');
@@ -22,7 +23,10 @@ window.back = function () {
 
 
 // Ejecutar al cargar la página
-document.addEventListener("DOMContentLoaded", cargarProductos);
+document.addEventListener("DOMContentLoaded", () => {
+  cargarProductos();
+  addReward();
+});
 
 
 // Función para agregar al carrito
@@ -42,6 +46,34 @@ function addToOrder(producto, categoryId) {
     };
   }
   updateOrderDisplay();
+}
+
+async function addReward() {
+  const reward = JSON.parse(localStorage.getItem("reward"));
+  if (reward.TIPO != "porcentaje") {
+
+    const productoReward = await obtenerProductoPorId(parseInt(reward.ID_PRODUCTO_ASOCIADO));
+    console.log(productoReward);
+
+
+    const id = productoReward.ID_PRODUCTO;
+    const rutaFotos = `../../UPLOADS/categorias/${productoReward.ID_CATEGORIA}/`;
+    productoReward.FOTO = rutaFotos + productoReward.FOTO;
+
+    if (reward.TIPO == "gratis") {
+      if (cart[id]) {
+        cart[id].quantity += 1;
+      } else {
+        cart[id] = {
+          nombre: productoReward.NOMBRE,
+          price: 0,
+          img: productoReward.FOTO,
+          quantity: 1
+        };
+      }
+      updateOrderDisplay();
+    }
+  }
 }
 
 // Función para actualizar el resumen de orden
