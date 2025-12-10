@@ -23,7 +23,6 @@ const storage = multer.diskStorage({
 
         const dir = path.join(__dirname, "..", "..", "frontend", "UPLOADS", "categorias", categoriaId.toString());
 
-        // Crear carpeta si no existe
         if (!fs.existsSync(dir)) {
             fs.mkdirSync(dir, { recursive: true });
         }
@@ -73,7 +72,6 @@ router.post("/", upload.single("foto"), async (req, res) => {
     }
 });
 
-
 // ---------------------------------------------------------------
 // PUT actualizar producto
 // ---------------------------------------------------------------
@@ -81,9 +79,11 @@ router.put("/:id", upload.single("foto"), async (req, res) => {
     const { id } = req.params;
     const { nombre, descripcion, id_categoria, precio, estado } = req.body;
 
+    console.log('Datos recibidos:', { nombre, descripcion, id_categoria, precio, estado }); // DEBUG
+
     try {
         // 1. Obtener el producto actual
-        const sqlSelect = "SELECT FOTO, id_categoria FROM productos WHERE id = ?";
+        const sqlSelect = "SELECT * FROM productos WHERE ID_PRODUCTO = ?";
         db.query(sqlSelect, [id], (err, rows) => {
             if (err) return res.status(500).json({ error: err });
 
@@ -107,41 +107,56 @@ router.put("/:id", upload.single("foto"), async (req, res) => {
                 );
 
                 // borrar foto vieja si existe
-                if (fs.existsSync(rutaAnterior)) {
+                if (productoActual.FOTO && fs.existsSync(rutaAnterior)) {
                     fs.unlinkSync(rutaAnterior);
                 }
             }
 
-            // 3. SQL actualizar
+            // 3. Usar valores actuales si no se proporcionan nuevos
+            const nombreFinal = nombre || productoActual.NOMBRE;
+            const descripcionFinal = descripcion || productoActual.DESCRIPCION;
+            const categoriaFinal = id_categoria || productoActual.id_categoria;
+            const precioFinal = precio !== undefined ? precio : productoActual.PRECIO;
+            const estadoFinal = estado !== undefined ? estado : productoActual.ESTADO;
+
+            console.log('Estado actual:', productoActual.ESTADO); // DEBUG
+            console.log('Estado nuevo:', estadoFinal); // DEBUG
+
+            // 4. SQL actualizar - ASEGÚRATE QUE DIGA "ESTADO" (mayúsculas)
             const sqlUpdate = `
                 UPDATE productos 
-                SET nombre = ?, descripcion = ?, id_categoria = ?, precio = ?, estado = ?, FOTO = ?
-                WHERE id = ?
+                SET NOMBRE = ?, DESCRIPCION = ?, id_categoria = ?, PRECIO = ?, ESTADO = ?, FOTO = ?
+                WHERE ID_PRODUCTO = ?
             `;
 
             db.query(
                 sqlUpdate,
                 [
-                    nombre,
-                    descripcion,
-                    id_categoria,
-                    precio,
-                    estado,
+                    nombreFinal,
+                    descripcionFinal,
+                    categoriaFinal,
+                    precioFinal,
+                    estadoFinal,
                     fotoFinal,
                     id
                 ],
                 (err2, result) => {
-                    if (err2) return res.status(500).json({ error: err2 });
+                    if (err2) {
+                        console.error('Error al actualizar:', err2); // DEBUG
+                        return res.status(500).json({ error: err2 });
+                    }
+
+                    console.log('Producto actualizado exitosamente'); // DEBUG
 
                     res.json({
                         mensaje: "Producto actualizado correctamente",
                         producto: {
-                            id,
-                            nombre,
-                            descripcion,
-                            id_categoria,
-                            precio,
-                            estado,
+                            ID_PRODUCTO: id,
+                            NOMBRE: nombreFinal,
+                            DESCRIPCION: descripcionFinal,
+                            id_categoria: categoriaFinal,
+                            PRECIO: precioFinal,
+                            ESTADO: estadoFinal,
                             FOTO: fotoFinal
                         }
                     });
@@ -181,7 +196,6 @@ router.get("/:id", (req, res) => {
     });
 });
 
-
 // GET OBTENER TODOS LOS PRODUCTOS DE UNA CATEGORÍA
 router.get("/categoria/:id_categoria", (req, res) => {
     const { id_categoria } = req.params;
@@ -194,17 +208,16 @@ router.get("/categoria/:id_categoria", (req, res) => {
         if (rows.length === 0)
             return res.status(404).json({ error: "Productos no encontrados" });
 
-        res.json(rows); // devolver todos
+        res.json(rows);
     });
 });
-
 
 // DELETE BORRAR PRODUCTO POR SU ID
 router.delete("/:id", (req, res) => {
     const { id } = req.params;
 
     // 1. Obtener información del producto
-    const sqlSelect = "SELECT FOTO, id_categoria FROM productos WHERE id = ?";
+    const sqlSelect = "SELECT FOTO, id_categoria FROM productos WHERE ID_PRODUCTO = ?";
 
     db.query(sqlSelect, [id], (err, rows) => {
         if (err) return res.status(500).json({ error: err });
@@ -230,7 +243,7 @@ router.delete("/:id", (req, res) => {
         }
 
         // 3. Eliminar registro de BD
-        const sqlDelete = "DELETE FROM productos WHERE id = ?";
+        const sqlDelete = "DELETE FROM productos WHERE ID_PRODUCTO = ?";
 
         db.query(sqlDelete, [id], (err2, result) => {
             if (err2) return res.status(500).json({ error: err2 });
@@ -239,6 +252,5 @@ router.delete("/:id", (req, res) => {
         });
     });
 });
-
 
 export default router;

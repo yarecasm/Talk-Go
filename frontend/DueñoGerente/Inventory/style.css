@@ -217,7 +217,23 @@
         }
 
 
+.product-card.hidden-product {
+    opacity: 0.5;
+    border: 2px dashed #ccc;
+}
 
+.product-card.hidden-product::after {
+    content: "HIDDEN";
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #ff6b6b;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+}
 
 
 
