@@ -73,7 +73,67 @@ async function addReward() {
       }
       updateOrderDisplay();
     }
+
+  // 2x1
+  if (reward.TIPO === "2x1") {
+    const pagados = 1;
+    const gratis = 1;
+
+    // Agregar pagado
+    if (cart[id]) {
+      cart[id].quantity += pagados;
+    } else {
+      cart[id] = {
+        nombre: productoReward.NOMBRE,
+        price: parseFloat(productoReward.PRECIO),
+        img: productoReward.FOTO,
+        quantity: pagados
+      };
+    }
+
+    // Agregar gratis
+    cart[id + "_free"] = {
+      nombre: productoReward.NOMBRE + " (Gratis)",
+      price: 0,
+      img: productoReward.FOTO,
+      quantity: gratis
+    };
+
+    updateOrderDisplay();
+    return;
   }
+
+  // 3x2
+  if (reward.TIPO === "3x2") {
+    const pagados = 2;
+    const gratis = 1;
+
+    // Agregar pagados
+    if (cart[id]) {
+      cart[id].quantity += pagados;
+    } else {
+      cart[id] = {
+        nombre: productoReward.NOMBRE,
+        price: parseFloat(productoReward.PRECIO),
+        img: productoReward.FOTO,
+        quantity: pagados
+      };
+    }
+
+    // Agregar gratis
+    cart[id + "_free"] = {
+      nombre: productoReward.NOMBRE + " (Gratis)",
+      price: 0,
+      img: productoReward.FOTO,
+      quantity: gratis
+    };
+
+    updateOrderDisplay();
+    return;
+  }
+}
+
+  
 }
 
 // Función para actualizar el resumen de orden

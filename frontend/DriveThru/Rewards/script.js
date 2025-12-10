@@ -5,6 +5,11 @@ import { obtenerPuntosUsuario } from "../../services/usuarios.js";
 let userPoints = 0;
 let rewards = "";
 
+window.back = function () {
+    window.location.href = "../Inicio/index.html"; // Ajusta la ruta
+ 
+};
+
 async function obtenerRecompensas() {
     rewards = await obtenerRewards();
     console.log(rewards);
@@ -15,13 +20,12 @@ async function obtenerPuntos() {
     const idUsuario = localStorage.getItem('usuarioId');
     userPoints = await obtenerPuntosUsuario(idUsuario);
     userPoints = parseInt(userPoints.PUNTOS_ACUMULADOS);
+const puntosAcumulados = localStorage.getItem('userPoints');
     console.log(userPoints);
     setUserPoints();
 }
 
-function ReadyWindow() {
-    location.assign('../Ready/index.html');
-}
+
 
 document.addEventListener("DOMContentLoaded", () => {
     obtenerPuntos();

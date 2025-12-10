@@ -12,3 +12,12 @@ document.addEventListener("DOMContentLoaded", () => {
     mainTexts.classList.add("shift-down");  // ⬅️ mueve todo hacia abajo
   }
 });
+
+// Función para redirigir a "inicio.html" después de 5 segundos
+setTimeout(() => {
+    localStorage.clear();
+    window.location.href = "../Inicio/index.html";
+}, 5000); // 5000 milisegundos = 5 segundos
+
+ 
+   
