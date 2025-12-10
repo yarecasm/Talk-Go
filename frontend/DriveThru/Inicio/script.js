@@ -2,10 +2,9 @@ import { crearUsuarioInvitado, verificarUsuario } from "../../services/usuarios.
 
 const divPopUpMember = document.getElementById('login-member');
 
-
 async function OrderWindow() {
   console.log("Intentando crear invitado...");
-  
+
   try {
     const guestUser = await crearUsuarioInvitado();
     localStorage.setItem("usuarioId", guestUser.ID_USUARIO);
@@ -24,7 +23,7 @@ const idInput = document.getElementById("id-member");
 const checkIcon = document.getElementById("checkIcon");
 
 idInput.addEventListener("input", () => {
-  if (idInput.value.trim().length == 4) { 
+  if (idInput.value.trim().length == 4) {
     // ejemplo: válido si tiene 4 caracteres
     checkIcon.style.display = "block";
   } else {
@@ -100,11 +99,24 @@ window.addEventListener("message", (event) => {
       break;
 
     case "SET_MEMBER_CODE":
-      const input = document.getElementById("id-member");
-      if (input) {
-        input.value = event.data.code;
+      if (idInput) {
+        idInput.value = event.data.code;
+        idInput.textContent = event.data.code;
 
-        // validar usuario
+        if (idInput.value.trim().length == 4) {
+          // ejemplo: válido si tiene 4 caracteres
+          checkIcon.style.display = "block";
+        } else {
+          checkIcon.style.display = "none";
+        }
+      }
+      if (event.data.isValid) {
+        location.assign("../Categorias/index.html");
+      }
+      else {
+        idInput.textContent = "";
+        idInput.value = "";
+        checkIcon.style.display = "none";
       }
       break;
   }
